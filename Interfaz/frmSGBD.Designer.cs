@@ -42,6 +42,7 @@ namespace Interfaz
             this.grpTerminal2 = new System.Windows.Forms.GroupBox();
             this.btnExportarExcel = new System.Windows.Forms.Button();
             this.dgvTerminal = new System.Windows.Forms.DataGridView();
+            this.pan_esquemas = new System.Windows.Forms.Panel();
             this.grpSchemas.SuspendLayout();
             this.grpSchemas2.SuspendLayout();
             this.grpConsultas.SuspendLayout();
@@ -64,10 +65,12 @@ namespace Interfaz
             // 
             // grpSchemas
             // 
+            this.grpSchemas.Controls.Add(this.pan_esquemas);
             this.grpSchemas.Controls.Add(this.grpSchemas2);
             this.grpSchemas.Controls.Add(this.rtxtSchemas);
             this.grpSchemas.Controls.Add(this.rtxtArbol);
             this.grpSchemas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpSchemas.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpSchemas.Location = new System.Drawing.Point(0, 0);
             this.grpSchemas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpSchemas.Name = "grpSchemas";
@@ -103,21 +106,21 @@ namespace Interfaz
             // 
             this.rtxtSchemas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtxtSchemas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtSchemas.Location = new System.Drawing.Point(3, 17);
+            this.rtxtSchemas.Location = new System.Drawing.Point(3, 22);
             this.rtxtSchemas.Name = "rtxtSchemas";
             this.rtxtSchemas.ReadOnly = true;
-            this.rtxtSchemas.Size = new System.Drawing.Size(294, 370);
+            this.rtxtSchemas.Size = new System.Drawing.Size(294, 365);
             this.rtxtSchemas.TabIndex = 1;
             this.rtxtSchemas.Text = "";
             // 
             // rtxtArbol
             // 
             this.rtxtArbol.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtArbol.Location = new System.Drawing.Point(3, 17);
+            this.rtxtArbol.Location = new System.Drawing.Point(3, 22);
             this.rtxtArbol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtxtArbol.Name = "rtxtArbol";
             this.rtxtArbol.ReadOnly = true;
-            this.rtxtArbol.Size = new System.Drawing.Size(294, 370);
+            this.rtxtArbol.Size = new System.Drawing.Size(294, 365);
             this.rtxtArbol.TabIndex = 0;
             this.rtxtArbol.Text = "";
             // 
@@ -207,6 +210,14 @@ namespace Interfaz
             this.dgvTerminal.Size = new System.Drawing.Size(1218, 319);
             this.dgvTerminal.TabIndex = 1;
             // 
+            // pan_esquemas
+            // 
+            this.pan_esquemas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pan_esquemas.Location = new System.Drawing.Point(3, 22);
+            this.pan_esquemas.Name = "pan_esquemas";
+            this.pan_esquemas.Size = new System.Drawing.Size(294, 302);
+            this.pan_esquemas.TabIndex = 3;
+            // 
             // frmSGBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,6 +256,7 @@ namespace Interfaz
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.GroupBox grpTerminal2;
         private System.Windows.Forms.Button btnExportarExcel;
+        private System.Windows.Forms.Panel pan_esquemas;
     }
 }
 

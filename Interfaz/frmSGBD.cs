@@ -36,10 +36,15 @@ namespace Interfaz
                    
                     dtdatos = objSqlServer.QuerySQLServerNegocios("SELECT name, database_id, create_date  FROM sys.databases; ");
 
+                    CheckedListBox ch_list = new CheckedListBox();
+                    ch_list.Dock = DockStyle.Fill;
+
                     foreach (DataRow valor in dtdatos.Rows)
                     {
-                        this.rtxtSchemas.AppendText(valor["name"].ToString()+"\n");
+                        ch_list.Items.Add(valor["name"].ToString());
+                        //this.rtxtSchemas.AppendText(valor["name"].ToString()+"\n");
                     }
+                    this.pan_esquemas.Controls.Add(ch_list);
                 }
 
                 if (negocios_Loguin.motorElegido == 2)
@@ -47,11 +52,14 @@ namespace Interfaz
                     Negocios_MySQL objNegocios = new Negocios_MySQL();
 
                     dtdatos = objNegocios.QueryMySQLNegocios("SHOW DATABASES");
-
+                    CheckedListBox ch_list = new CheckedListBox();
+                    ch_list.Dock = DockStyle.Fill;
                     foreach (DataRow valor in dtdatos.Rows)
                     {
-                        this.rtxtSchemas.AppendText(valor["DATABASE"].ToString()+"\n");
+                        ch_list.Items.Add(valor["DATABASE"].ToString());
+                        //this.rtxtSchemas.AppendText(valor["DATABASE"].ToString()+"\n");
                     }
+                    this.pan_esquemas.Controls.Add(ch_list);
                 }
   
             }
