@@ -215,5 +215,10 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void grpTerminal2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }// fin calss del frame
 }

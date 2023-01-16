@@ -31,9 +31,9 @@ namespace Interfaz
         {
             this.btnEjecutar = new System.Windows.Forms.Button();
             this.grpSchemas = new System.Windows.Forms.GroupBox();
-            this.pan_esquemas = new System.Windows.Forms.Panel();
             this.grpSchemas2 = new System.Windows.Forms.GroupBox();
             this.btnRefrescar = new System.Windows.Forms.Button();
+            this.pan_esquemas = new System.Windows.Forms.Panel();
             this.rtxtSchemas = new System.Windows.Forms.RichTextBox();
             this.rtxtArbol = new System.Windows.Forms.RichTextBox();
             this.grpConsultas = new System.Windows.Forms.GroupBox();
@@ -83,14 +83,6 @@ namespace Interfaz
             this.grpSchemas.TabStop = false;
             this.grpSchemas.Text = "SCHEMAS";
             // 
-            // pan_esquemas
-            // 
-            this.pan_esquemas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pan_esquemas.Location = new System.Drawing.Point(6, 25);
-            this.pan_esquemas.Name = "pan_esquemas";
-            this.pan_esquemas.Size = new System.Drawing.Size(294, 341);
-            this.pan_esquemas.TabIndex = 3;
-            // 
             // grpSchemas2
             // 
             this.grpSchemas2.Controls.Add(this.btnRefrescar);
@@ -111,6 +103,14 @@ namespace Interfaz
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.UseVisualStyleBackColor = true;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
+            // pan_esquemas
+            // 
+            this.pan_esquemas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pan_esquemas.Location = new System.Drawing.Point(6, 25);
+            this.pan_esquemas.Name = "pan_esquemas";
+            this.pan_esquemas.Size = new System.Drawing.Size(294, 341);
+            this.pan_esquemas.TabIndex = 3;
             // 
             // rtxtSchemas
             // 
@@ -195,7 +195,7 @@ namespace Interfaz
             this.grpTerminal2.Size = new System.Drawing.Size(138, 301);
             this.grpTerminal2.TabIndex = 2;
             this.grpTerminal2.TabStop = false;
-            this.grpTerminal2.Text = "Exportar";
+            this.grpTerminal2.Enter += new System.EventHandler(this.grpTerminal2_Enter);
             // 
             // btnLimpiarResult
             // 
