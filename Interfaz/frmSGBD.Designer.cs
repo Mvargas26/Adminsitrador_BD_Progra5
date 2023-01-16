@@ -31,6 +31,7 @@ namespace Interfaz
         {
             this.btnEjecutar = new System.Windows.Forms.Button();
             this.grpSchemas = new System.Windows.Forms.GroupBox();
+            this.pan_esquemas = new System.Windows.Forms.Panel();
             this.grpSchemas2 = new System.Windows.Forms.GroupBox();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.rtxtSchemas = new System.Windows.Forms.RichTextBox();
@@ -40,9 +41,8 @@ namespace Interfaz
             this.rtxtConsultas = new System.Windows.Forms.RichTextBox();
             this.grpTerminal = new System.Windows.Forms.GroupBox();
             this.grpTerminal2 = new System.Windows.Forms.GroupBox();
-            this.btnExportarExcel = new System.Windows.Forms.Button();
+            this.btnLimpiarResult = new System.Windows.Forms.Button();
             this.dgvTerminal = new System.Windows.Forms.DataGridView();
-            this.pan_esquemas = new System.Windows.Forms.Panel();
             this.grpSchemas.SuspendLayout();
             this.grpSchemas2.SuspendLayout();
             this.grpConsultas.SuspendLayout();
@@ -79,6 +79,14 @@ namespace Interfaz
             this.grpSchemas.TabIndex = 1;
             this.grpSchemas.TabStop = false;
             this.grpSchemas.Text = "SCHEMAS";
+            // 
+            // pan_esquemas
+            // 
+            this.pan_esquemas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pan_esquemas.Location = new System.Drawing.Point(3, 22);
+            this.pan_esquemas.Name = "pan_esquemas";
+            this.pan_esquemas.Size = new System.Drawing.Size(294, 302);
+            this.pan_esquemas.TabIndex = 3;
             // 
             // grpSchemas2
             // 
@@ -178,25 +186,25 @@ namespace Interfaz
             // 
             // grpTerminal2
             // 
-            this.grpTerminal2.Controls.Add(this.btnExportarExcel);
+            this.grpTerminal2.Controls.Add(this.btnLimpiarResult);
             this.grpTerminal2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.grpTerminal2.Location = new System.Drawing.Point(1075, 17);
+            this.grpTerminal2.Location = new System.Drawing.Point(1083, 17);
             this.grpTerminal2.Name = "grpTerminal2";
-            this.grpTerminal2.Size = new System.Drawing.Size(146, 319);
+            this.grpTerminal2.Size = new System.Drawing.Size(138, 319);
             this.grpTerminal2.TabIndex = 2;
             this.grpTerminal2.TabStop = false;
             this.grpTerminal2.Text = "Exportar";
             // 
-            // btnExportarExcel
+            // btnLimpiarResult
             // 
-            this.btnExportarExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportarExcel.Location = new System.Drawing.Point(6, 66);
-            this.btnExportarExcel.Name = "btnExportarExcel";
-            this.btnExportarExcel.Size = new System.Drawing.Size(118, 97);
-            this.btnExportarExcel.TabIndex = 0;
-            this.btnExportarExcel.Text = "Exportar Excel";
-            this.btnExportarExcel.UseVisualStyleBackColor = true;
-            this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
+            this.btnLimpiarResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarResult.Location = new System.Drawing.Point(21, 66);
+            this.btnLimpiarResult.Name = "btnLimpiarResult";
+            this.btnLimpiarResult.Size = new System.Drawing.Size(103, 127);
+            this.btnLimpiarResult.TabIndex = 0;
+            this.btnLimpiarResult.Text = "Limpiar Resultado";
+            this.btnLimpiarResult.UseVisualStyleBackColor = true;
+            this.btnLimpiarResult.Click += new System.EventHandler(this.btnLimpiarResult_Click);
             // 
             // dgvTerminal
             // 
@@ -209,14 +217,6 @@ namespace Interfaz
             this.dgvTerminal.RowHeadersWidth = 51;
             this.dgvTerminal.Size = new System.Drawing.Size(1218, 319);
             this.dgvTerminal.TabIndex = 1;
-            // 
-            // pan_esquemas
-            // 
-            this.pan_esquemas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pan_esquemas.Location = new System.Drawing.Point(3, 22);
-            this.pan_esquemas.Name = "pan_esquemas";
-            this.pan_esquemas.Size = new System.Drawing.Size(294, 302);
-            this.pan_esquemas.TabIndex = 3;
             // 
             // frmSGBD
             // 
@@ -255,7 +255,7 @@ namespace Interfaz
         private System.Windows.Forms.GroupBox grpSchemas2;
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.GroupBox grpTerminal2;
-        private System.Windows.Forms.Button btnExportarExcel;
+        private System.Windows.Forms.Button btnLimpiarResult;
         private System.Windows.Forms.Panel pan_esquemas;
     }
 }

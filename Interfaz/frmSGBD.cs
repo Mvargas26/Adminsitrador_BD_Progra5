@@ -147,59 +147,6 @@ namespace Interfaz
             }
         }
 
-        public void exportarExcel(DataGridView dgvConDatos)
-        {
-            try
-            {
-                Microsoft.Office.Interop.Excel.Application objExcel = new Microsoft.Office.Interop.Excel.Application();
-                objExcel.Application.Workbooks.Add(true);//le idicamos que vamos a crear un nuevo libro
-
-                //creacion columnas
-                int indiceColum = 0;
-
-                foreach(DataGridViewColumn column in dgvConDatos.Columns)
-                {
-                    indiceColum++;
-                    objExcel.Cells[1, indiceColum] = column.Name;
-                }
-
-                //filas
-                int indiceFila = 0;
-                foreach (DataGridViewRow fila in dgvConDatos.Rows)
-                {
-                    indiceFila++;
-                    indiceColum = 0;// para que al llegar a la ultima columna, se devuelva a la primera pero ya en otra fila
-                    foreach (DataGridViewColumn column in dgvConDatos.Columns)
-                    {
-                        indiceColum++;
-                        objExcel.Cells[indiceFila + 1, indiceColum] = fila.Cells[column.Name].Value;
-                    }
-                }
-
-                objExcel.Visible = true;
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Fallo exportar a Excel");
-            }
-            //Creditos DE METODO BASE: JC SOURCE CODE, https://www.youtube.com/watch?v=V4Jcxb97EMU&list=PLYDUurx6L3YWheBbYG9-WZj11ARajua9F&index=3
-        }//fin exportarExcel
-
-        private void btnExportarExcel_Click(object sender, EventArgs e)
-        {
-            if (dgvTerminal.RowCount == 0)
-            {
-                MessageBox.Show("No hay datos para Exportar");
-                return;
-            }
-            else
-            {
-                exportarExcel(dgvTerminal);
-            }
-           
-        }
-
         private void resaltadoSintaxis(String strCadenaUsuario, RichTextBox rTextAmodificar)
         {
             //estas son las palabras que si encuentra va pintar azul
@@ -234,6 +181,19 @@ namespace Interfaz
             
         }//fin limpiar
 
-       
+        private void btnLimpiarResult_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvTerminal.DataSource = null;
+                dgvTerminal.Rows.Clear();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }// fin calss del frame
 }
