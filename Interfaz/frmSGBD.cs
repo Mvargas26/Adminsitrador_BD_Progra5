@@ -36,6 +36,9 @@ namespace Interfaz
                    
                     dtdatos = objSqlServer.QuerySQLServerNegocios("SELECT name, database_id, create_date  FROM sys.databases; ");
 
+                    this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor+"\n");
+                    this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
+
                     CheckedListBox ch_list = new CheckedListBox();
                     ch_list.Dock = DockStyle.Fill;
 
@@ -52,6 +55,10 @@ namespace Interfaz
                     Negocios_MySQL objNegocios = new Negocios_MySQL();
 
                     dtdatos = objNegocios.QueryMySQLNegocios("SHOW DATABASES");
+
+                    this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor + "\n");
+                    this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
+
                     CheckedListBox ch_list = new CheckedListBox();
                     ch_list.Dock = DockStyle.Fill;
                     foreach (DataRow valor in dtdatos.Rows)
@@ -111,9 +118,6 @@ namespace Interfaz
         {
             try
             {
-                //limpiamos el rtext antes de cargarlo
-                limpiarRtext(rtxtSchemas);
-
                 DataTable dtdatos = new DataTable();
 
                 if (negocios_Loguin.motorElegido == 1)
@@ -122,10 +126,18 @@ namespace Interfaz
 
                     dtdatos = objSqlServer.QuerySQLServerNegocios("SELECT name, database_id, create_date  FROM sys.databases; ");
 
+                    this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor + "\n");
+                    this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
+
+                    CheckedListBox ch_list = new CheckedListBox();
+                    ch_list.Dock = DockStyle.Fill;
+
                     foreach (DataRow valor in dtdatos.Rows)
                     {
-                        this.rtxtSchemas.AppendText(valor["name"].ToString() + "\n");
+                        ch_list.Items.Add(valor["name"].ToString());
+                        //this.rtxtSchemas.AppendText(valor["name"].ToString()+"\n");
                     }
+                    this.pan_esquemas.Controls.Add(ch_list);
                 }
 
                 if (negocios_Loguin.motorElegido == 2)
@@ -134,11 +146,19 @@ namespace Interfaz
 
                     dtdatos = objNegocios.QueryMySQLNegocios("SHOW DATABASES");
 
+                    this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor + "\n");
+                    this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
+
+                    CheckedListBox ch_list = new CheckedListBox();
+                    ch_list.Dock = DockStyle.Fill;
                     foreach (DataRow valor in dtdatos.Rows)
                     {
-                        this.rtxtSchemas.AppendText(valor["DATABASE"].ToString() + "\n");
+                        ch_list.Items.Add(valor["DATABASE"].ToString());
+                        //this.rtxtSchemas.AppendText(valor["DATABASE"].ToString()+"\n");
                     }
+                    this.pan_esquemas.Controls.Add(ch_list);
                 }
+
 
             }
             catch (Exception Error)

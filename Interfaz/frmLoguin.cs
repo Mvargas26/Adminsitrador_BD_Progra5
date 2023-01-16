@@ -76,7 +76,9 @@ namespace Interfaz
                         negocios_Loguin.usuario = this.txtUsuario.Text;
                         negocios_Loguin.password = this.txtPassword.Text;
                         negocios_Loguin.EstaActiva = true;
-                        
+                        negocios_Loguin.Servidor = "VARGASPC\\INSTA1";
+
+
                         MessageBox.Show("conexión Exitosa");
                         this.Close();
                      }
@@ -96,6 +98,7 @@ namespace Interfaz
                         negocios_Loguin.motorElegido = 2;
                         negocios_Loguin.usuario = this.txtUsuario.Text;
                         negocios_Loguin.password = this.txtPassword.Text;
+                        negocios_Loguin.Servidor = "172.0.0.1";
 
                         MessageBox.Show("conexión Exitosa");
                         this.Close();

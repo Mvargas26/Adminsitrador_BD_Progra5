@@ -43,12 +43,15 @@ namespace Interfaz
             this.grpTerminal2 = new System.Windows.Forms.GroupBox();
             this.btnLimpiarResult = new System.Windows.Forms.Button();
             this.dgvTerminal = new System.Windows.Forms.DataGridView();
+            this.richTx_Servidor = new System.Windows.Forms.RichTextBox();
+            this.pan_Server = new System.Windows.Forms.Panel();
             this.grpSchemas.SuspendLayout();
             this.grpSchemas2.SuspendLayout();
             this.grpConsultas.SuspendLayout();
             this.grpTerminal.SuspendLayout();
             this.grpTerminal2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTerminal)).BeginInit();
+            this.pan_Server.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnEjecutar
@@ -65,46 +68,45 @@ namespace Interfaz
             // 
             // grpSchemas
             // 
-            this.grpSchemas.Controls.Add(this.pan_esquemas);
             this.grpSchemas.Controls.Add(this.grpSchemas2);
+            this.grpSchemas.Controls.Add(this.pan_esquemas);
             this.grpSchemas.Controls.Add(this.rtxtSchemas);
             this.grpSchemas.Controls.Add(this.rtxtArbol);
             this.grpSchemas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.grpSchemas.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpSchemas.Location = new System.Drawing.Point(0, 0);
+            this.grpSchemas.Location = new System.Drawing.Point(0, 100);
             this.grpSchemas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpSchemas.Name = "grpSchemas";
             this.grpSchemas.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpSchemas.Size = new System.Drawing.Size(300, 389);
+            this.grpSchemas.Size = new System.Drawing.Size(300, 334);
             this.grpSchemas.TabIndex = 1;
             this.grpSchemas.TabStop = false;
             this.grpSchemas.Text = "SCHEMAS";
             // 
             // pan_esquemas
             // 
-            this.pan_esquemas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pan_esquemas.Location = new System.Drawing.Point(3, 22);
+            this.pan_esquemas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pan_esquemas.Location = new System.Drawing.Point(6, 25);
             this.pan_esquemas.Name = "pan_esquemas";
-            this.pan_esquemas.Size = new System.Drawing.Size(294, 302);
+            this.pan_esquemas.Size = new System.Drawing.Size(294, 341);
             this.pan_esquemas.TabIndex = 3;
             // 
             // grpSchemas2
             // 
             this.grpSchemas2.Controls.Add(this.btnRefrescar);
             this.grpSchemas2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grpSchemas2.Location = new System.Drawing.Point(3, 324);
+            this.grpSchemas2.Location = new System.Drawing.Point(3, 256);
             this.grpSchemas2.Name = "grpSchemas2";
-            this.grpSchemas2.Size = new System.Drawing.Size(294, 63);
+            this.grpSchemas2.Size = new System.Drawing.Size(294, 76);
             this.grpSchemas2.TabIndex = 2;
             this.grpSchemas2.TabStop = false;
-            this.grpSchemas2.Text = "Refresh";
             // 
             // btnRefrescar
             // 
             this.btnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefrescar.Location = new System.Drawing.Point(88, 21);
+            this.btnRefrescar.Location = new System.Drawing.Point(65, 26);
             this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(147, 32);
+            this.btnRefrescar.Size = new System.Drawing.Size(147, 33);
             this.btnRefrescar.TabIndex = 0;
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.UseVisualStyleBackColor = true;
@@ -117,7 +119,7 @@ namespace Interfaz
             this.rtxtSchemas.Location = new System.Drawing.Point(3, 22);
             this.rtxtSchemas.Name = "rtxtSchemas";
             this.rtxtSchemas.ReadOnly = true;
-            this.rtxtSchemas.Size = new System.Drawing.Size(294, 365);
+            this.rtxtSchemas.Size = new System.Drawing.Size(294, 310);
             this.rtxtSchemas.TabIndex = 1;
             this.rtxtSchemas.Text = "";
             // 
@@ -128,7 +130,7 @@ namespace Interfaz
             this.rtxtArbol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtxtArbol.Name = "rtxtArbol";
             this.rtxtArbol.ReadOnly = true;
-            this.rtxtArbol.Size = new System.Drawing.Size(294, 365);
+            this.rtxtArbol.Size = new System.Drawing.Size(294, 310);
             this.rtxtArbol.TabIndex = 0;
             this.rtxtArbol.Text = "";
             // 
@@ -142,7 +144,7 @@ namespace Interfaz
             this.grpConsultas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpConsultas.Name = "grpConsultas";
             this.grpConsultas.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpConsultas.Size = new System.Drawing.Size(918, 389);
+            this.grpConsultas.Size = new System.Drawing.Size(918, 434);
             this.grpConsultas.TabIndex = 2;
             this.grpConsultas.TabStop = false;
             this.grpConsultas.Text = "CONSULTAS";
@@ -175,11 +177,11 @@ namespace Interfaz
             this.grpTerminal.Controls.Add(this.grpTerminal2);
             this.grpTerminal.Controls.Add(this.dgvTerminal);
             this.grpTerminal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grpTerminal.Location = new System.Drawing.Point(0, 393);
+            this.grpTerminal.Location = new System.Drawing.Point(0, 456);
             this.grpTerminal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpTerminal.Name = "grpTerminal";
             this.grpTerminal.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpTerminal.Size = new System.Drawing.Size(1224, 338);
+            this.grpTerminal.Size = new System.Drawing.Size(1224, 320);
             this.grpTerminal.TabIndex = 3;
             this.grpTerminal.TabStop = false;
             this.grpTerminal.Text = "TERMINAL";
@@ -190,7 +192,7 @@ namespace Interfaz
             this.grpTerminal2.Dock = System.Windows.Forms.DockStyle.Right;
             this.grpTerminal2.Location = new System.Drawing.Point(1083, 17);
             this.grpTerminal2.Name = "grpTerminal2";
-            this.grpTerminal2.Size = new System.Drawing.Size(138, 319);
+            this.grpTerminal2.Size = new System.Drawing.Size(138, 301);
             this.grpTerminal2.TabIndex = 2;
             this.grpTerminal2.TabStop = false;
             this.grpTerminal2.Text = "Exportar";
@@ -215,14 +217,36 @@ namespace Interfaz
             this.dgvTerminal.Name = "dgvTerminal";
             this.dgvTerminal.ReadOnly = true;
             this.dgvTerminal.RowHeadersWidth = 51;
-            this.dgvTerminal.Size = new System.Drawing.Size(1218, 319);
+            this.dgvTerminal.Size = new System.Drawing.Size(1218, 301);
             this.dgvTerminal.TabIndex = 1;
+            // 
+            // richTx_Servidor
+            // 
+            this.richTx_Servidor.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.richTx_Servidor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTx_Servidor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.richTx_Servidor.Location = new System.Drawing.Point(0, 0);
+            this.richTx_Servidor.Name = "richTx_Servidor";
+            this.richTx_Servidor.ReadOnly = true;
+            this.richTx_Servidor.Size = new System.Drawing.Size(287, 59);
+            this.richTx_Servidor.TabIndex = 4;
+            this.richTx_Servidor.Text = "";
+            // 
+            // pan_Server
+            // 
+            this.pan_Server.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pan_Server.Controls.Add(this.richTx_Servidor);
+            this.pan_Server.Location = new System.Drawing.Point(6, 17);
+            this.pan_Server.Name = "pan_Server";
+            this.pan_Server.Size = new System.Drawing.Size(291, 63);
+            this.pan_Server.TabIndex = 4;
             // 
             // frmSGBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1224, 731);
+            this.ClientSize = new System.Drawing.Size(1224, 776);
+            this.Controls.Add(this.pan_Server);
             this.Controls.Add(this.grpTerminal);
             this.Controls.Add(this.grpConsultas);
             this.Controls.Add(this.grpSchemas);
@@ -237,6 +261,7 @@ namespace Interfaz
             this.grpTerminal.ResumeLayout(false);
             this.grpTerminal2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTerminal)).EndInit();
+            this.pan_Server.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -257,6 +282,8 @@ namespace Interfaz
         private System.Windows.Forms.GroupBox grpTerminal2;
         private System.Windows.Forms.Button btnLimpiarResult;
         private System.Windows.Forms.Panel pan_esquemas;
+        private System.Windows.Forms.RichTextBox richTx_Servidor;
+        private System.Windows.Forms.Panel pan_Server;
     }
 }
 
