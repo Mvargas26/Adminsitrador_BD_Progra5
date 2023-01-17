@@ -45,6 +45,7 @@ namespace Interfaz
             this.dgvTerminal = new System.Windows.Forms.DataGridView();
             this.richTx_Servidor = new System.Windows.Forms.RichTextBox();
             this.pan_Server = new System.Windows.Forms.Panel();
+            this.pan_Terminal = new System.Windows.Forms.Panel();
             this.grpSchemas.SuspendLayout();
             this.grpSchemas2.SuspendLayout();
             this.grpConsultas.SuspendLayout();
@@ -137,6 +138,7 @@ namespace Interfaz
             // grpConsultas
             // 
             this.grpConsultas.Controls.Add(this.btnBorrar);
+            this.grpConsultas.Controls.Add(this.dgvTerminal);
             this.grpConsultas.Controls.Add(this.rtxtConsultas);
             this.grpConsultas.Controls.Add(this.btnEjecutar);
             this.grpConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -174,8 +176,8 @@ namespace Interfaz
             // 
             // grpTerminal
             // 
+            this.grpTerminal.Controls.Add(this.pan_Terminal);
             this.grpTerminal.Controls.Add(this.grpTerminal2);
-            this.grpTerminal.Controls.Add(this.dgvTerminal);
             this.grpTerminal.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grpTerminal.Location = new System.Drawing.Point(0, 456);
             this.grpTerminal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -210,13 +212,12 @@ namespace Interfaz
             // dgvTerminal
             // 
             this.dgvTerminal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTerminal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTerminal.Location = new System.Drawing.Point(3, 17);
+            this.dgvTerminal.Location = new System.Drawing.Point(24, 292);
             this.dgvTerminal.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTerminal.Name = "dgvTerminal";
             this.dgvTerminal.ReadOnly = true;
             this.dgvTerminal.RowHeadersWidth = 51;
-            this.dgvTerminal.Size = new System.Drawing.Size(1218, 301);
+            this.dgvTerminal.Size = new System.Drawing.Size(254, 136);
             this.dgvTerminal.TabIndex = 1;
             // 
             // richTx_Servidor
@@ -240,10 +241,19 @@ namespace Interfaz
             this.pan_Server.Size = new System.Drawing.Size(291, 63);
             this.pan_Server.TabIndex = 4;
             // 
+            // pan_Terminal
+            // 
+            this.pan_Terminal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pan_Terminal.Location = new System.Drawing.Point(3, 17);
+            this.pan_Terminal.Name = "pan_Terminal";
+            this.pan_Terminal.Size = new System.Drawing.Size(1080, 301);
+            this.pan_Terminal.TabIndex = 3;
+            // 
             // frmSGBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1224, 776);
             this.Controls.Add(this.pan_Server);
             this.Controls.Add(this.grpTerminal);
@@ -283,6 +293,7 @@ namespace Interfaz
         private System.Windows.Forms.Panel pan_esquemas;
         private System.Windows.Forms.RichTextBox richTx_Servidor;
         private System.Windows.Forms.Panel pan_Server;
+        private System.Windows.Forms.Panel pan_Terminal;
     }
 }
 

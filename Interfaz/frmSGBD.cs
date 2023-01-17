@@ -158,14 +158,40 @@ namespace Interfaz
                 {
                     Negocios_SQL_Server objSQLServer = new Negocios_SQL_Server();
                     String consultaDelUsuario = this.rtxtConsultas.Text;
+                    DataSet ds = new DataSet();
 
-                    if (listaChequeados.Count != 0) //si en la lista hay chequeados
+                    if (listaChequeados.Count <= 2) //si en la lista hay chequeados
                     {
-                       DataSet ds = new DataSet();
-                        ds = objSQLServer.QueryMySQLDatos_DS(consultaDelUsuario);
+                       StringBuilder strB_cadena = new StringBuilder();
+
+                        foreach (string dbConsultar in listaChequeados)//envia consulta x cada base
+                        {
+                            strB_cadena.Append("use "+dbConsultar+";");
+                            strB_cadena.Append(consultaDelUsuario+"\n");
+                        }
+
+                        ds = objSQLServer.QuerySQLServerNegocios_DS(strB_cadena.ToString());
+                        int posicion = 0;
+                        for (int i = 0; i < ds.Tables.Count; i++)
+                        {
+                            DataGridView newDGV = new DataGridView();
+                            newDGV.DataSource= ds.Tables[i];
+                            newDGV.Location = new Point(0, posicion);
+                            newDGV.Size = new Size(500, 100);
+                            this.pan_Terminal.Controls.Add(newDGV);
+                            posicion += 130;
+                        }
+                    }
+                    else
+                    {
+                        DataGridView newDGV = new DataGridView();
+                        newDGV.DataSource = objSQLServer.QuerySQLServerNegocios(consultaDelUsuario);
+                        newDGV.Dock=  DockStyle.Fill;
+                        newDGV.Location = new Point(0, 0);
+                        this.pan_Terminal.Controls.Add(newDGV);
                     }
                    
-                    this.dgvTerminal.DataSource = objSQLServer.QuerySQLServerNegocios(consultaDelUsuario);
+                   // this.dgvTerminal.DataSource = objSQLServer.QuerySQLServerNegocios(consultaDelUsuario);
                 }
 
                 if (negocios_Loguin.motorElegido == 2)
@@ -173,7 +199,7 @@ namespace Interfaz
                     Negocios_MySQL objNegocios = new Negocios_MySQL();
                     String consultaDelUsuario = this.rtxtConsultas.Text;
 
-                    this.dgvTerminal.DataSource = objNegocios.QueryMySQLNegocios(consultaDelUsuario);
+                    //this.dgvTerminal.DataSource = objNegocios.QueryMySQLNegocios(consultaDelUsuario);
                 }
 
 
