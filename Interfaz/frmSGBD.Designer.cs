@@ -195,7 +195,6 @@ namespace Interfaz
             this.grpTerminal2.Size = new System.Drawing.Size(138, 301);
             this.grpTerminal2.TabIndex = 2;
             this.grpTerminal2.TabStop = false;
-            this.grpTerminal2.Enter += new System.EventHandler(this.grpTerminal2_Enter);
             // 
             // btnLimpiarResult
             // 

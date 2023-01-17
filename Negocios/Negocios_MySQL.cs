@@ -25,7 +25,21 @@ namespace Negocios
             {
                 throw new Exception(Error.Message);
             }
-        }//fin metodo MostrarBD
+        }//fn QueryMySQLNegocios 
+
+        public DataSet QueryMySQLDatos_DS(String QueryUserNegociosMySQL)
+        {
+            try
+            {
+                Datos_MySQL objDatos = new Datos_MySQL();
+
+                return objDatos.QueryMySQLDatos_DS(QueryUserNegociosMySQL);
+            }
+            catch (Exception Error)
+            {
+                throw new Exception(Error.Message);
+            }
+        }//fn QueryMySQLDatos_DS
 
     }//fin class
 }//fin space

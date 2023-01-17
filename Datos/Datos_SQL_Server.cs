@@ -67,7 +67,32 @@ namespace Datos
             }
 
         }//fin querySQL_Server
+        public DataSet QuerySQL_Server_DS(String QueryDelUsuario)
+        {
+            try
+            {
+                SqlCommand cmd = sqlConector.CreateCommand();
+                cmd.CommandText = QueryDelUsuario;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
+                DataSet ds= new DataSet();
+
+                sqlConector.Open();
+
+                adapter.Fill(ds);
+
+                return ds;
+            }
+            catch (Exception Error)
+            {
+                throw new Exception(Error.Message);
+            }
+            finally
+            {
+                sqlConector.Close();
+            }
+
+        }//fin querySQL_Server
         public Boolean probarConexionSQLServer()
         {
             try

@@ -68,6 +68,33 @@ namespace Datos
             }
         }//fin query
 
+        public DataSet QueryMySQLDatos_DS(String QueryDelUsuario)
+        {
+
+            try
+            {
+                MySqlCommand cmd = mySQLconector.CreateCommand();
+
+                cmd.CommandText = QueryDelUsuario;
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+
+                mySQLconector.Open();
+
+                adapter.Fill(ds);
+
+                return ds;
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                mySQLconector.Close();
+            }
+        }//fin query
+
 
         public Boolean probarConexionMySQL(String usuarioValidar, String passwordValidar)
         {
