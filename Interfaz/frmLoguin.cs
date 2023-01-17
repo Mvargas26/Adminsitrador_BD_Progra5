@@ -80,7 +80,7 @@ namespace Interfaz
                         negocios_Loguin.usuario = this.txtUsuario.Text;
                         negocios_Loguin.password = this.txtPassword.Text;
                         negocios_Loguin.EstaActiva = true;
-                        negocios_Loguin.Servidor = "VARGASPC\\INSTA1";
+                        negocios_Loguin.Servidor = ConfigurationManager.AppSettings["DataSource_SqlSer"];
 
 
                         MessageBox.Show("conexión Exitosa");
