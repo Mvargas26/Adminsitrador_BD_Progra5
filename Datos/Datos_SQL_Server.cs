@@ -39,6 +39,8 @@ namespace Datos
             }
         }
 
+
+
         public DataTable QuerySQL_Server(String QueryDelUsuario)
         {
             try

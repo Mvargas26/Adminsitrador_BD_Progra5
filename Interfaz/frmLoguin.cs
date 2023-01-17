@@ -1,14 +1,17 @@
-﻿using Negocios;
+﻿using Microsoft.Office.Interop.Excel;
+using Negocios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ubiety.Dns.Core.Records.General;
 
 namespace Interfaz
 {
@@ -17,6 +20,7 @@ namespace Interfaz
         public frmLoguin()
         {
             InitializeComponent();
+            btnWinAuth.Visible= false;
         }
 
         private void chkVer_CheckedChanged(object sender, EventArgs e)
@@ -112,6 +116,31 @@ namespace Interfaz
             }
         }
 
-       
+        private void btnWinAuth_Click(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("Conexión establecida");
+                    this.Close(); 
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message);
+                }
+            }
+        }
+
+        private void cmbBD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbBD.SelectedItem.Equals("SQLServer"))
+            {
+                btnWinAuth.Visible = true;
+            }
+        }
     }
+
 }
