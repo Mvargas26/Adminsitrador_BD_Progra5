@@ -110,11 +110,36 @@ namespace Interfaz
                         this.Close();
                      }
                 }//fin en caso que selecione 2
-           
+
+
+                if (cmbBD.SelectedItem.Equals("AW"))
+                {
+                    //asignamos al appseting las credenciales enviadas
+                    //ConfigurationManager.AppSettings["DataSource"] = txtServidor.Text;
+                    //ConfigurationManager.AppSettings["User_SqlSer"] = txtUsuario.Text;
+                    //ConfigurationManager.AppSettings["Password_SqlSer"] = txtPassword.Text;
+
+
+                    if (objNegocios.usuarioExiste1(3, txtServidor.Text))
+                    {
+                        // si es true, se conecto bien a SQLServer
+                        //pasamos los datos a la clase estatica para almacenarlos
+                        negocios_Loguin.motorElegido = 3;
+                        //negocios_Loguin.usuario = "";
+                        //negocios_Loguin.password = "";
+                        negocios_Loguin.EstaActiva = true;
+                        negocios_Loguin.Servidor = this.txtServidor.Text;
+
+
+                        MessageBox.Show("conexión Exitosa");
+                        this.Close();
+                    }
+                }//fin en caso que selecione 1
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "No ha \n sido posible lograr la conexión con los datos \n indicados, por favor intente de nuevo.");
+                MessageBox.Show(ex.Message, "No ha  sido posible lograr la conexión con los datos  indicados, por favor intente de nuevo.");
             }
         }
 

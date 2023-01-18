@@ -156,7 +156,8 @@ namespace Interfaz
             this.cmbBD.FormattingEnabled = true;
             this.cmbBD.Items.AddRange(new object[] {
             "SQLServer",
-            "MySQL"});
+            "MySQL",
+            "AW"});
             this.cmbBD.Location = new System.Drawing.Point(259, 82);
             this.cmbBD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbBD.Name = "cmbBD";

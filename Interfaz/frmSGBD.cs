@@ -70,6 +70,28 @@ namespace Interfaz
                     }
                     this.pan_esquemas.Controls.Add(ch_list);
                 }
+
+
+
+                if (negocios_Loguin.motorElegido == 3)
+                {
+                    Negocios_SQL_Server objSqlServer = new Negocios_SQL_Server();
+
+                    dtdatos = objSqlServer.QuerySQLServerNegociosAW("SELECT name, database_id, create_date  FROM sys.databases; ");
+
+                    this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor + "\n");
+                    //this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
+
+                    CheckedListBox ch_list = new CheckedListBox();
+                    ch_list.Dock = DockStyle.Fill;
+
+                    foreach (DataRow valor in dtdatos.Rows)
+                    {
+                        ch_list.Items.Add(valor["name"].ToString());
+                    }
+                    this.pan_esquemas.Controls.Add(ch_list);
+                    ch_list.SelectedIndexChanged += new EventHandler(this.verifica_chked); //dispara cada q seleccionan uno
+                }
             }
             catch (Exception Error)
             {
@@ -136,6 +158,10 @@ namespace Interfaz
                     }
                     this.pan_esquemas.Controls.Add(ch_list);
                 }
+
+
+
+              
 
 
             }

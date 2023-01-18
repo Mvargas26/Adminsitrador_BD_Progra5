@@ -21,7 +21,28 @@ namespace Negocios
 
                     return true; //si el usuario existe la conexion es exitosa, regresa true
                 }
+
+
+
+                if (MotorSelecionado == 3)
+                {
+                    Datos_SQL_AW objSQLServer = new Datos_SQL_AW();
+                    if (objSQLServer.probarConexionSQLServerAW())
+
+                        return true; //si el usuario existe la conexion es exitosa, regresa true
+                }
+
+
+
                 //Si entra aqui el usuario seleciono MySQL
+
+
+
+
+
+
+
+
                 if (MotorSelecionado == 2)
                 {
                     Datos_MySQL objMySQL = new Datos_MySQL();
@@ -42,6 +63,39 @@ namespace Negocios
            
         }
 
-       
+
+
+
+
+
+        public Boolean usuarioExiste1(int MotorSelecionado, String ServiodorConsulta)
+        {
+            try
+
+            {
+
+
+                if (MotorSelecionado == 3)
+                {
+                    Datos_SQL_AW objSQLServer = new Datos_SQL_AW();
+                    if (objSQLServer.probarConexionSQLServerAW())
+
+                        return true; //si el usuario existe la conexion es exitosa, regresa true
+                }
+
+
+
+                //Si entra aqui el usuario seleciono MySQL
+
+                return false;
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message);
+            }
+
+
+    }
+
     }//fin class Procesos
 }
