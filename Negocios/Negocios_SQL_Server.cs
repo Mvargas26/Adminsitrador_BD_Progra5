@@ -29,22 +29,22 @@ namespace Negocios
                 throw new Exception(Error.Message);
             }
         }
-        public DataSet QuerySQLServerNegocios_DS(String QueryUserNegociosMySQL)
-        {
-            try
-            {
-                Datos_SQL_Server objDatos = new Datos_SQL_Server();
+        //public DataSet QuerySQLServerNegocios_DS(String QueryUserNegociosMySQL)
+        //{
+        //    try
+        //    {
+        //        Datos_SQL_Server objDatos = new Datos_SQL_Server();
 
-                DataSet ds = objDatos.QuerySQL_Server_DS(QueryUserNegociosMySQL);
+        //        DataSet ds = objDatos.QuerySQL_Server_DS(QueryUserNegociosMySQL);
 
-                return ds;
+        //        return ds;
 
-            }
-            catch (Exception Error)
-            {
-                throw new Exception(Error.Message);
-            }
-        }// fn QuerySQLServerNegocios_DS
+        //    }
+        //    catch (Exception Error)
+        //    {
+        //        throw new Exception(Error.Message);
+        //    }
+        //}// fn QuerySQLServerNegocios_DS
 
     }//fin class
 }//fn space

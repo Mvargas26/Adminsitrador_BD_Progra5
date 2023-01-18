@@ -170,7 +170,7 @@ namespace Interfaz
                             strB_cadena.Append(consultaDelUsuario+"\n");
                         }
 
-                        ds = objSQLServer.QuerySQLServerNegocios_DS(strB_cadena.ToString());
+                        //ds = objSQLServer.QuerySQLServerNegocios_DS(strB_cadena.ToString());
                         int posicion = 0;
                         for (int i = 0; i < ds.Tables.Count; i++)
                         {
@@ -206,7 +206,7 @@ namespace Interfaz
             }
             catch (Exception Error)
             {
-                MessageBox.Show(Error.Message);
+                MessageBox.Show(Error.Message, "“Por favor digite un comando válido.”");
             }
         }
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -254,5 +254,9 @@ namespace Interfaz
         }// fin resaltadoSintaxis
         #endregion
 
+        private void grpConsultas_Enter(object sender, EventArgs e)
+        {
+
+        }
     }// fin calss del frame
 }

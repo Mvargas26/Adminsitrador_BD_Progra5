@@ -10,7 +10,7 @@ namespace Negocios
   public  class negociosProcesos
     {
 
-        public Boolean usuarioExiste( int MotorSelecionado,String userConsulta, String PasswordConsulta)
+        public Boolean usuarioExiste( int MotorSelecionado, String ServiodorConsulta, String userConsulta, String PasswordConsulta)
         {
             try
             {// si entra aqui, el usuario seleciono SQLServer

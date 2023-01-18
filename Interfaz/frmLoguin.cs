@@ -69,10 +69,12 @@ namespace Interfaz
                 if (cmbBD.SelectedItem.Equals("SQLServer"))
                 {
                     //asignamos al appseting las credenciales enviadas
+                    ConfigurationManager.AppSettings["DataSource_SqlSer"] = txtServidor.Text;
                     ConfigurationManager.AppSettings["User_SqlSer"] = txtUsuario.Text;
                     ConfigurationManager.AppSettings["Password_SqlSer"]= txtPassword.Text;
+                    
 
-                   if (objNegocios.usuarioExiste(1, txtUsuario.Text, txtPassword.Text))
+                    if (objNegocios.usuarioExiste(1, txtServidor.Text, txtUsuario.Text, txtPassword.Text))
                     {
                         // si es true, se conecto bien a SQLServer
                         //pasamos los datos a la clase estatica para almacenarlos
@@ -80,7 +82,7 @@ namespace Interfaz
                         negocios_Loguin.usuario = this.txtUsuario.Text;
                         negocios_Loguin.password = this.txtPassword.Text;
                         negocios_Loguin.EstaActiva = true;
-                        negocios_Loguin.Servidor = ConfigurationManager.AppSettings["DataSource_SqlSer"];
+                        negocios_Loguin.Servidor = this.txtServidor.Text;
 
 
                         MessageBox.Show("conexión Exitosa");
@@ -91,18 +93,18 @@ namespace Interfaz
                 //si es igual a 2 llamamos el metodo de mySQL
                 if (cmbBD.SelectedItem.Equals("MySQL"))
                 {
-                    
+                    ConfigurationManager.AppSettings["ServerName_MySQL"] = "127.0.0.1";
                     ConfigurationManager.AppSettings["User_MySQL"] = txtUsuario.Text;
                     ConfigurationManager.AppSettings["Password_MySQL"] = txtPassword.Text;
 
-                    if (objNegocios.usuarioExiste(2, txtUsuario.Text, txtPassword.Text))
+                    if (objNegocios.usuarioExiste(2, txtServidor.Text, txtUsuario.Text, txtPassword.Text))
                     {
                         // si es true, se conecto bien a SQLServer
                         //pasamos los datos a la clase estatica para almacenarlos
                         negocios_Loguin.motorElegido = 2;
                         negocios_Loguin.usuario = this.txtUsuario.Text;
                         negocios_Loguin.password = this.txtPassword.Text;
-                        negocios_Loguin.Servidor = "172.0.0.1";
+                        negocios_Loguin.Servidor = "127.0.0.1";
 
                         MessageBox.Show("conexión Exitosa");
                         this.Close();
@@ -112,7 +114,7 @@ namespace Interfaz
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Fallo la conexion");
+                MessageBox.Show(ex.Message, "No ha \n sido posible lograr la conexión con los datos \n indicados, por favor intente de nuevo.");
             }
         }
 
@@ -140,6 +142,11 @@ namespace Interfaz
             {
                 btnWinAuth.Visible = true;
             }
+        }
+
+        private void grpLoguin_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 

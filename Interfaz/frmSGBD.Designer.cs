@@ -38,20 +38,20 @@ namespace Interfaz
             this.rtxtArbol = new System.Windows.Forms.RichTextBox();
             this.grpConsultas = new System.Windows.Forms.GroupBox();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.dgvTerminal = new System.Windows.Forms.DataGridView();
             this.rtxtConsultas = new System.Windows.Forms.RichTextBox();
             this.grpTerminal = new System.Windows.Forms.GroupBox();
+            this.pan_Terminal = new System.Windows.Forms.Panel();
             this.grpTerminal2 = new System.Windows.Forms.GroupBox();
             this.btnLimpiarResult = new System.Windows.Forms.Button();
-            this.dgvTerminal = new System.Windows.Forms.DataGridView();
             this.richTx_Servidor = new System.Windows.Forms.RichTextBox();
             this.pan_Server = new System.Windows.Forms.Panel();
-            this.pan_Terminal = new System.Windows.Forms.Panel();
             this.grpSchemas.SuspendLayout();
             this.grpSchemas2.SuspendLayout();
             this.grpConsultas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTerminal)).BeginInit();
             this.grpTerminal.SuspendLayout();
             this.grpTerminal2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTerminal)).BeginInit();
             this.pan_Server.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,6 +150,7 @@ namespace Interfaz
             this.grpConsultas.TabIndex = 2;
             this.grpConsultas.TabStop = false;
             this.grpConsultas.Text = "CONSULTAS";
+            this.grpConsultas.Enter += new System.EventHandler(this.grpConsultas_Enter);
             // 
             // btnBorrar
             // 
@@ -162,6 +163,17 @@ namespace Interfaz
             this.btnBorrar.Text = "Borrar Consola";
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // dgvTerminal
+            // 
+            this.dgvTerminal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTerminal.Location = new System.Drawing.Point(24, 292);
+            this.dgvTerminal.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvTerminal.Name = "dgvTerminal";
+            this.dgvTerminal.ReadOnly = true;
+            this.dgvTerminal.RowHeadersWidth = 51;
+            this.dgvTerminal.Size = new System.Drawing.Size(254, 136);
+            this.dgvTerminal.TabIndex = 1;
             // 
             // rtxtConsultas
             // 
@@ -188,6 +200,14 @@ namespace Interfaz
             this.grpTerminal.TabStop = false;
             this.grpTerminal.Text = "TERMINAL";
             // 
+            // pan_Terminal
+            // 
+            this.pan_Terminal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pan_Terminal.Location = new System.Drawing.Point(3, 17);
+            this.pan_Terminal.Name = "pan_Terminal";
+            this.pan_Terminal.Size = new System.Drawing.Size(1080, 301);
+            this.pan_Terminal.TabIndex = 3;
+            // 
             // grpTerminal2
             // 
             this.grpTerminal2.Controls.Add(this.btnLimpiarResult);
@@ -208,17 +228,6 @@ namespace Interfaz
             this.btnLimpiarResult.Text = "Limpiar Resultado";
             this.btnLimpiarResult.UseVisualStyleBackColor = true;
             this.btnLimpiarResult.Click += new System.EventHandler(this.btnLimpiarResult_Click);
-            // 
-            // dgvTerminal
-            // 
-            this.dgvTerminal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTerminal.Location = new System.Drawing.Point(24, 292);
-            this.dgvTerminal.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvTerminal.Name = "dgvTerminal";
-            this.dgvTerminal.ReadOnly = true;
-            this.dgvTerminal.RowHeadersWidth = 51;
-            this.dgvTerminal.Size = new System.Drawing.Size(254, 136);
-            this.dgvTerminal.TabIndex = 1;
             // 
             // richTx_Servidor
             // 
@@ -241,14 +250,6 @@ namespace Interfaz
             this.pan_Server.Size = new System.Drawing.Size(291, 63);
             this.pan_Server.TabIndex = 4;
             // 
-            // pan_Terminal
-            // 
-            this.pan_Terminal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pan_Terminal.Location = new System.Drawing.Point(3, 17);
-            this.pan_Terminal.Name = "pan_Terminal";
-            this.pan_Terminal.Size = new System.Drawing.Size(1080, 301);
-            this.pan_Terminal.TabIndex = 3;
-            // 
             // frmSGBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -267,9 +268,9 @@ namespace Interfaz
             this.grpSchemas.ResumeLayout(false);
             this.grpSchemas2.ResumeLayout(false);
             this.grpConsultas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTerminal)).EndInit();
             this.grpTerminal.ResumeLayout(false);
             this.grpTerminal2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTerminal)).EndInit();
             this.pan_Server.ResumeLayout(false);
             this.ResumeLayout(false);
 
