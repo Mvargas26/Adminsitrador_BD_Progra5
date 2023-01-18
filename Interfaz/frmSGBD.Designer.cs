@@ -202,6 +202,7 @@ namespace Interfaz
             // 
             // pan_Terminal
             // 
+            this.pan_Terminal.AutoScroll = true;
             this.pan_Terminal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pan_Terminal.Location = new System.Drawing.Point(3, 17);
             this.pan_Terminal.Name = "pan_Terminal";

@@ -104,9 +104,7 @@ namespace Interfaz
         {
             try
             {
-                dgvTerminal.DataSource = null;
-                dgvTerminal.Rows.Clear();
-
+                this.pan_Terminal.Controls.Clear();
             }
             catch (Exception ex)
             {
@@ -186,7 +184,7 @@ namespace Interfaz
                     String consultaDelUsuario = this.rtxtConsultas.Text;
                     DataSet ds = new DataSet();
 
-                    if (listaChequeados.Count <= 2) //si en la lista hay chequeados
+                    if (listaChequeados.Count > 1) //si en la lista hay chequeados
                     {
                        StringBuilder strB_cadena = new StringBuilder();
 
@@ -194,8 +192,20 @@ namespace Interfaz
                         {
                             strB_cadena.Append("use "+dbConsultar+";");
                             strB_cadena.Append(consultaDelUsuario+"\n");
+                            DataTable dt = new DataTable();
+                            try
+                            {
+                                dt = objSQLServer.QuerySQLServerNegocios(strB_cadena.ToString());
+                                ds.Tables.Add(dt);
+                                strB_cadena.Clear();
+                            }
+                            catch (Exception)
+                            {
+                                ds.Tables.Add(dt);
+                                strB_cadena.Clear();
+                            }
+                           
                         }
-
                         //ds = objSQLServer.QuerySQLServerNegocios_DS(strB_cadena.ToString());
                         int posicion = 0;
                         for (int i = 0; i < ds.Tables.Count; i++)
