@@ -19,24 +19,14 @@ namespace Datos
             try
             {
                StringBuilder StringConexionArmado = new StringBuilder();
-
-                //StringConexionArmado.Append("Data Source=");
                 StringConexionArmado.Append(ConfigurationManager.AppSettings["DataSource"]);
-                //StringConexionArmado.Append(";Initial Catalog=");
-                //StringConexionArmado.Append(ConfigurationManager.AppSettings["InitialCatalog_SqlSer"]);
-
-
-                this.sqlConector = new SqlConnection(StringConexionArmado.ToString());
-
-
+                 this.sqlConector = new SqlConnection(StringConexionArmado.ToString());
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
-
-
 
         public DataTable QuerySQL_Server(String QueryDelUsuario)
         {
@@ -113,5 +103,5 @@ namespace Datos
 
 
 
-    }
-}
+    }//fin class
+}///fn space

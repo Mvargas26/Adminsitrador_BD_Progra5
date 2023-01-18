@@ -20,7 +20,6 @@ namespace Interfaz
         public frmLoguin()
         {
             InitializeComponent();
-            btnWinAuth.Visible= false;
         }
 
         private void chkVer_CheckedChanged(object sender, EventArgs e)
@@ -45,23 +44,23 @@ namespace Interfaz
             try
             {
                 //VALIDACIONES
-                if (this.cmbBD.Text == "")
+                if (this.cmbBD.Text == "" && (!cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)")))
                 {
                     MessageBox.Show("Debe selecionar un motor de base de datos");
                     return;
                 }
 
-                if (this.txtUsuario.Text == "")
+                if (this.txtUsuario.Text == "" && (!cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)")))
                 {
                     MessageBox.Show("Usuario Requerido");
                     return;
                 }
 
-                if (this.txtPassword.Text == "")
+                if (this.txtPassword.Text == "" && (!cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)")))
                 {
                     MessageBox.Show("Contraseña Requerida");
                     return;
-                }
+                }//fin validaciones
 
                 negociosProcesos objNegocios =new  negociosProcesos();
 
@@ -69,7 +68,11 @@ namespace Interfaz
                 if (cmbBD.SelectedItem.Equals("SQLServer"))
                 {
                     //asignamos al appseting las credenciales enviadas
-                    ConfigurationManager.AppSettings["DataSource_SqlSer"] = txtServidor.Text;
+                    if (!txtServidor.Equals(""))
+                    {
+                        ConfigurationManager.AppSettings["DataSource_SqlSer"] = txtServidor.Text;
+                    }
+                   
                     ConfigurationManager.AppSettings["User_SqlSer"] = txtUsuario.Text;
                     ConfigurationManager.AppSettings["Password_SqlSer"]= txtPassword.Text;
                     
@@ -111,25 +114,24 @@ namespace Interfaz
                      }
                 }//fin en caso que selecione 2
 
-
-                if (cmbBD.SelectedItem.Equals("AW"))
+                //si es igual a 3
+                if (cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)"))
                 {
                     //asignamos al appseting las credenciales enviadas
                     //ConfigurationManager.AppSettings["DataSource"] = txtServidor.Text;
-                    //ConfigurationManager.AppSettings["User_SqlSer"] = txtUsuario.Text;
+                    ConfigurationManager.AppSettings["User_SqlSer"] = Environment.UserName;
                     //ConfigurationManager.AppSettings["Password_SqlSer"] = txtPassword.Text;
 
 
-                    if (objNegocios.usuarioExiste1(3, txtServidor.Text))
+                    if (objNegocios.usuarioExiste_WA(3, txtServidor.Text))
                     {
                         // si es true, se conecto bien a SQLServer
                         //pasamos los datos a la clase estatica para almacenarlos
                         negocios_Loguin.motorElegido = 3;
-                        //negocios_Loguin.usuario = "";
+                        negocios_Loguin.usuario = Environment.UserName; 
                         //negocios_Loguin.password = "";
                         negocios_Loguin.EstaActiva = true;
-                        negocios_Loguin.Servidor = this.txtServidor.Text;
-
+                        negocios_Loguin.Servidor = ConfigurationManager.AppSettings["DataSource"];
 
                         MessageBox.Show("conexión Exitosa");
                         this.Close();
@@ -141,38 +143,20 @@ namespace Interfaz
             {
                 MessageBox.Show(ex.Message, "No ha  sido posible lograr la conexión con los datos  indicados, por favor intente de nuevo.");
             }
-        }
-
-        private void btnWinAuth_Click(object sender, EventArgs e)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    MessageBox.Show("Conexión establecida");
-                    this.Close(); 
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message);
-                }
-            }
-        }
+        }//fn btn ingresar
 
         private void cmbBD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBD.SelectedItem.Equals("SQLServer"))
+            if (cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)"))
             {
-                btnWinAuth.Visible = true;
+                this.grp_Credenciales.Visible = false;
             }
-        }
+            if (!cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)"))
+            {
+                this.grp_Credenciales.Visible = true;
+            }
+        }//fn cmbBD_SelectedIndexChanged
 
-        private void grpLoguin_Enter(object sender, EventArgs e)
-        {
+    }//fin class
 
-        }
-    }
-
-}
+}//fin space

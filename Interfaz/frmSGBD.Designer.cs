@@ -150,7 +150,6 @@ namespace Interfaz
             this.grpConsultas.TabIndex = 2;
             this.grpConsultas.TabStop = false;
             this.grpConsultas.Text = "CONSULTAS";
-            this.grpConsultas.Enter += new System.EventHandler(this.grpConsultas_Enter);
             // 
             // btnBorrar
             // 

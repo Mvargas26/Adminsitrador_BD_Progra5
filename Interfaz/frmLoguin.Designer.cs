@@ -30,33 +30,27 @@ namespace Interfaz
         private void InitializeComponent()
         {
             this.grpLoguin = new System.Windows.Forms.GroupBox();
-            this.btnWinAuth = new System.Windows.Forms.Button();
+            this.grp_Credenciales = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtServidor = new System.Windows.Forms.TextBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.chkVer = new System.Windows.Forms.CheckBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.cmbBD = new System.Windows.Forms.ComboBox();
             this.lblBD = new System.Windows.Forms.Label();
-            this.txtServidor = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.grpLoguin.SuspendLayout();
+            this.grp_Credenciales.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpLoguin
             // 
-            this.grpLoguin.Controls.Add(this.txtServidor);
-            this.grpLoguin.Controls.Add(this.label1);
-            this.grpLoguin.Controls.Add(this.btnWinAuth);
-            this.grpLoguin.Controls.Add(this.chkVer);
+            this.grpLoguin.Controls.Add(this.grp_Credenciales);
             this.grpLoguin.Controls.Add(this.btnCancelar);
             this.grpLoguin.Controls.Add(this.btnIngresar);
-            this.grpLoguin.Controls.Add(this.txtPassword);
-            this.grpLoguin.Controls.Add(this.lblPassword);
-            this.grpLoguin.Controls.Add(this.txtUsuario);
-            this.grpLoguin.Controls.Add(this.lblUsuario);
             this.grpLoguin.Controls.Add(this.cmbBD);
             this.grpLoguin.Controls.Add(this.lblBD);
             this.grpLoguin.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -65,26 +59,64 @@ namespace Interfaz
             this.grpLoguin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpLoguin.Name = "grpLoguin";
             this.grpLoguin.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpLoguin.Size = new System.Drawing.Size(685, 620);
+            this.grpLoguin.Size = new System.Drawing.Size(676, 729);
             this.grpLoguin.TabIndex = 0;
             this.grpLoguin.TabStop = false;
-            this.grpLoguin.Enter += new System.EventHandler(this.grpLoguin_Enter);
             // 
-            // btnWinAuth
+            // grp_Credenciales
             // 
-            this.btnWinAuth.Location = new System.Drawing.Point(286, 466);
-            this.btnWinAuth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnWinAuth.Name = "btnWinAuth";
-            this.btnWinAuth.Size = new System.Drawing.Size(100, 73);
-            this.btnWinAuth.TabIndex = 9;
-            this.btnWinAuth.Text = "Win Auth";
-            this.btnWinAuth.UseVisualStyleBackColor = true;
-            this.btnWinAuth.Click += new System.EventHandler(this.btnWinAuth_Click);
+            this.grp_Credenciales.Controls.Add(this.label1);
+            this.grp_Credenciales.Controls.Add(this.txtServidor);
+            this.grp_Credenciales.Controls.Add(this.lblUsuario);
+            this.grp_Credenciales.Controls.Add(this.txtUsuario);
+            this.grp_Credenciales.Controls.Add(this.chkVer);
+            this.grp_Credenciales.Controls.Add(this.lblPassword);
+            this.grp_Credenciales.Controls.Add(this.txtPassword);
+            this.grp_Credenciales.Location = new System.Drawing.Point(26, 144);
+            this.grp_Credenciales.Name = "grp_Credenciales";
+            this.grp_Credenciales.Size = new System.Drawing.Size(567, 414);
+            this.grp_Credenciales.TabIndex = 12;
+            this.grp_Credenciales.TabStop = false;
+            this.grp_Credenciales.Text = "Credenciales User";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(347, 26);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Ingrese el nombre de la instancia:";
+            // 
+            // txtServidor
+            // 
+            this.txtServidor.Location = new System.Drawing.Point(241, 110);
+            this.txtServidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtServidor.Name = "txtServidor";
+            this.txtServidor.Size = new System.Drawing.Size(223, 33);
+            this.txtServidor.TabIndex = 11;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(6, 163);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(313, 26);
+            this.lblUsuario.TabIndex = 2;
+            this.lblUsuario.Text = "Ingrese su nombre de Usuario:";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(241, 213);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(223, 33);
+            this.txtUsuario.TabIndex = 3;
             // 
             // chkVer
             // 
             this.chkVer.AutoSize = true;
-            this.chkVer.Location = new System.Drawing.Point(502, 387);
+            this.chkVer.Location = new System.Drawing.Point(487, 318);
             this.chkVer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkVer.Name = "chkVer";
             this.chkVer.Size = new System.Drawing.Size(67, 30);
@@ -93,9 +125,27 @@ namespace Interfaz
             this.chkVer.UseVisualStyleBackColor = true;
             this.chkVer.CheckedChanged += new System.EventHandler(this.chkVer_CheckedChanged);
             // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(3, 261);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(238, 26);
+            this.lblPassword.TabIndex = 4;
+            this.lblPassword.Text = "Ingrese su contraseña:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(241, 316);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(223, 33);
+            this.txtPassword.TabIndex = 5;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(416, 466);
+            this.btnCancelar.Location = new System.Drawing.Point(389, 627);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(133, 41);
@@ -106,7 +156,7 @@ namespace Interfaz
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(141, 466);
+            this.btnIngresar.Location = new System.Drawing.Point(114, 627);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(123, 41);
@@ -115,41 +165,6 @@ namespace Interfaz
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(256, 385);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(223, 33);
-            this.txtPassword.TabIndex = 5;
-            this.txtPassword.UseSystemPasswordChar = true;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(18, 330);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(238, 26);
-            this.lblPassword.TabIndex = 4;
-            this.lblPassword.Text = "Ingrese su contraseña:";
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(256, 282);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(223, 33);
-            this.txtUsuario.TabIndex = 3;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(21, 232);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(313, 26);
-            this.lblUsuario.TabIndex = 2;
-            this.lblUsuario.Text = "Ingrese su nombre de Usuario:";
-            // 
             // cmbBD
             // 
             this.cmbBD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -157,7 +172,7 @@ namespace Interfaz
             this.cmbBD.Items.AddRange(new object[] {
             "SQLServer",
             "MySQL",
-            "AW"});
+            "SQLServer(Windos Autentification)"});
             this.cmbBD.Location = new System.Drawing.Point(259, 82);
             this.cmbBD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbBD.Name = "cmbBD";
@@ -174,28 +189,11 @@ namespace Interfaz
             this.lblBD.TabIndex = 0;
             this.lblBD.Text = "Selecione el motor de Base de Datos para Conectarse:";
             // 
-            // txtServidor
-            // 
-            this.txtServidor.Location = new System.Drawing.Point(256, 179);
-            this.txtServidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtServidor.Name = "txtServidor";
-            this.txtServidor.Size = new System.Drawing.Size(223, 33);
-            this.txtServidor.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(347, 26);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Ingrese el nombre de la instancia:";
-            // 
             // frmLoguin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 620);
+            this.ClientSize = new System.Drawing.Size(676, 729);
             this.ControlBox = false;
             this.Controls.Add(this.grpLoguin);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -204,6 +202,8 @@ namespace Interfaz
             this.Text = "Ingrese sus Credenciales";
             this.grpLoguin.ResumeLayout(false);
             this.grpLoguin.PerformLayout();
+            this.grp_Credenciales.ResumeLayout(false);
+            this.grp_Credenciales.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -220,8 +220,8 @@ namespace Interfaz
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ComboBox cmbBD;
         private System.Windows.Forms.Label lblBD;
-        private System.Windows.Forms.Button btnWinAuth;
         private System.Windows.Forms.TextBox txtServidor;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox grp_Credenciales;
     }
 }

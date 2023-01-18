@@ -23,6 +23,7 @@ namespace Interfaz
 
         private void frmSGBD_Load(object sender, EventArgs e)
         {
+            DataTable dtdatos = new DataTable();
             try
             {
                 if (negocios_Loguin.motorElegido == 0)
@@ -30,9 +31,7 @@ namespace Interfaz
                     MessageBox.Show("Por favor vaya a la pagina de Loguin Primero");
                     
                 }
-                
-                DataTable dtdatos = new DataTable();
-
+ 
                 if (negocios_Loguin.motorElegido == 1)
                 {
                     Negocios_SQL_Server objSqlServer = new Negocios_SQL_Server();
@@ -71,8 +70,6 @@ namespace Interfaz
                     this.pan_esquemas.Controls.Add(ch_list);
                 }
 
-
-
                 if (negocios_Loguin.motorElegido == 3)
                 {
                     Negocios_SQL_Server objSqlServer = new Negocios_SQL_Server();
@@ -80,7 +77,7 @@ namespace Interfaz
                     dtdatos = objSqlServer.QuerySQLServerNegociosAW("SELECT name, database_id, create_date  FROM sys.databases; ");
 
                     this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor + "\n");
-                    //this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
+                    this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
 
                     CheckedListBox ch_list = new CheckedListBox();
                     ch_list.Dock = DockStyle.Fill;
@@ -289,10 +286,6 @@ namespace Interfaz
 
         }// fin resaltadoSintaxis
         #endregion
-
-        private void grpConsultas_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
     }// fin calss del frame
-}
+}//fin class

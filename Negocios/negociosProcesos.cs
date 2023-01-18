@@ -13,7 +13,7 @@ namespace Negocios
         public Boolean usuarioExiste( int MotorSelecionado, String ServiodorConsulta, String userConsulta, String PasswordConsulta)
         {
             try
-            {// si entra aqui, el usuario seleciono SQLServer
+            {// Si entra aqui, el usuario seleciono SQLServer
                 if (MotorSelecionado == 1)
                 {
                     Datos_SQL_Server objSQLServer = new Datos_SQL_Server();
@@ -21,28 +21,7 @@ namespace Negocios
 
                     return true; //si el usuario existe la conexion es exitosa, regresa true
                 }
-
-
-
-                if (MotorSelecionado == 3)
-                {
-                    Datos_SQL_AW objSQLServer = new Datos_SQL_AW();
-                    if (objSQLServer.probarConexionSQLServerAW())
-
-                        return true; //si el usuario existe la conexion es exitosa, regresa true
-                }
-
-
-
                 //Si entra aqui el usuario seleciono MySQL
-
-
-
-
-
-
-
-
                 if (MotorSelecionado == 2)
                 {
                     Datos_MySQL objMySQL = new Datos_MySQL();
@@ -51,6 +30,14 @@ namespace Negocios
                     {
                         return true;
                     }
+                }
+                // Si entra aqui, el usuario seleciono SQLServer Wndows Auntentification
+                if (MotorSelecionado == 3)
+                {
+                    Datos_SQL_AW objSQLServer = new Datos_SQL_AW();
+                    if (objSQLServer.probarConexionSQLServerAW())
+
+                        return true; //si el usuario existe la conexion es exitosa, regresa true
                 }
 
                 return false;
@@ -62,30 +49,16 @@ namespace Negocios
 
            
         }
-
-
-
-
-
-
-        public Boolean usuarioExiste1(int MotorSelecionado, String ServiodorConsulta)
+        public Boolean usuarioExiste_WA(int MotorSelecionado, String ServiodorConsulta)
         {
             try
-
             {
-
-
                 if (MotorSelecionado == 3)
                 {
                     Datos_SQL_AW objSQLServer = new Datos_SQL_AW();
                     if (objSQLServer.probarConexionSQLServerAW())
-
                         return true; //si el usuario existe la conexion es exitosa, regresa true
                 }
-
-
-
-                //Si entra aqui el usuario seleciono MySQL
 
                 return false;
             }
@@ -93,9 +66,7 @@ namespace Negocios
             {
                 throw new Exception(Ex.Message);
             }
-
-
-    }
+        }//fin usuarioExiste_WA
 
     }//fin class Procesos
-}
+}//fn space
