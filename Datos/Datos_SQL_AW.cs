@@ -18,9 +18,7 @@ namespace Datos
         {
             try
             {
-               StringBuilder StringConexionArmado = new StringBuilder();
-                StringConexionArmado.Append(ConfigurationManager.AppSettings["DataSource"]);
-                 this.sqlConector = new SqlConnection(StringConexionArmado.ToString());
+                 this.sqlConector = new SqlConnection("Data Source="+ ConfigurationManager.AppSettings["DataSource"] + ";Initial Catalog=master;Integrated Security=True");
             }
             catch (Exception ex)
             {

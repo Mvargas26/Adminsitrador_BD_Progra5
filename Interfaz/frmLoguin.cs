@@ -147,6 +147,7 @@ namespace Interfaz
             if (cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)"))
             {
                 this.grp_Credenciales.Visible = false;
+                txtServidor.Text = ConfigurationManager.AppSettings["DataSource"];
             }
             if (!cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)"))
             {

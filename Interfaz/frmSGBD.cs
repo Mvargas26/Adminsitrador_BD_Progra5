@@ -409,5 +409,10 @@ namespace Interfaz
             rhc_BasesSelect.Clear();
             listaChequeados.Clear();
         }
+
+        private void btn_Todas_Click(object sender, EventArgs e)
+        {
+
+        }
     }// fin calss del frame
 }//fin class

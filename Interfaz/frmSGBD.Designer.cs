@@ -37,6 +37,9 @@ namespace Interfaz
             this.rtxtSchemas = new System.Windows.Forms.RichTextBox();
             this.rtxtArbol = new System.Windows.Forms.RichTextBox();
             this.grpConsultas = new System.Windows.Forms.GroupBox();
+            this.btnLimpiarSelec = new System.Windows.Forms.Button();
+            this.lblBasesSelec = new System.Windows.Forms.Label();
+            this.rhc_BasesSelect = new System.Windows.Forms.RichTextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.rtxtConsultas = new System.Windows.Forms.RichTextBox();
             this.grpTerminal = new System.Windows.Forms.GroupBox();
@@ -45,11 +48,11 @@ namespace Interfaz
             this.btnLimpiarResult = new System.Windows.Forms.Button();
             this.richTx_Servidor = new System.Windows.Forms.RichTextBox();
             this.pan_Server = new System.Windows.Forms.Panel();
-            this.rhc_BasesSelect = new System.Windows.Forms.RichTextBox();
-            this.lblBasesSelec = new System.Windows.Forms.Label();
-            this.btnLimpiarSelec = new System.Windows.Forms.Button();
+            this.btn_Todas = new System.Windows.Forms.Button();
+            this.btn_Ninguna = new System.Windows.Forms.Button();
             this.grpSchemas.SuspendLayout();
             this.grpSchemas2.SuspendLayout();
+            this.pan_esquemas.SuspendLayout();
             this.grpConsultas.SuspendLayout();
             this.grpTerminal.SuspendLayout();
             this.grpTerminal2.SuspendLayout();
@@ -109,6 +112,8 @@ namespace Interfaz
             // pan_esquemas
             // 
             this.pan_esquemas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pan_esquemas.Controls.Add(this.btn_Ninguna);
+            this.pan_esquemas.Controls.Add(this.btn_Todas);
             this.pan_esquemas.Location = new System.Drawing.Point(6, 25);
             this.pan_esquemas.Name = "pan_esquemas";
             this.pan_esquemas.Size = new System.Drawing.Size(294, 341);
@@ -153,6 +158,36 @@ namespace Interfaz
             this.grpConsultas.TabIndex = 2;
             this.grpConsultas.TabStop = false;
             this.grpConsultas.Text = "CONSULTAS";
+            // 
+            // btnLimpiarSelec
+            // 
+            this.btnLimpiarSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarSelec.Location = new System.Drawing.Point(9, 394);
+            this.btnLimpiarSelec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLimpiarSelec.Name = "btnLimpiarSelec";
+            this.btnLimpiarSelec.Size = new System.Drawing.Size(127, 36);
+            this.btnLimpiarSelec.TabIndex = 5;
+            this.btnLimpiarSelec.Text = "Limpiar";
+            this.btnLimpiarSelec.UseVisualStyleBackColor = true;
+            this.btnLimpiarSelec.Click += new System.EventHandler(this.btnLimpiarSelec_Click);
+            // 
+            // lblBasesSelec
+            // 
+            this.lblBasesSelec.AutoSize = true;
+            this.lblBasesSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasesSelec.Location = new System.Drawing.Point(6, 309);
+            this.lblBasesSelec.Name = "lblBasesSelec";
+            this.lblBasesSelec.Size = new System.Drawing.Size(163, 16);
+            this.lblBasesSelec.TabIndex = 4;
+            this.lblBasesSelec.Text = "Bases Seleccionadas:";
+            // 
+            // rhc_BasesSelect
+            // 
+            this.rhc_BasesSelect.Location = new System.Drawing.Point(6, 331);
+            this.rhc_BasesSelect.Name = "rhc_BasesSelect";
+            this.rhc_BasesSelect.Size = new System.Drawing.Size(168, 58);
+            this.rhc_BasesSelect.TabIndex = 3;
+            this.rhc_BasesSelect.Text = "";
             // 
             // btnBorrar
             // 
@@ -242,35 +277,32 @@ namespace Interfaz
             this.pan_Server.Size = new System.Drawing.Size(291, 63);
             this.pan_Server.TabIndex = 4;
             // 
-            // rhc_BasesSelect
+            // btn_Todas
             // 
-            this.rhc_BasesSelect.Location = new System.Drawing.Point(6, 331);
-            this.rhc_BasesSelect.Name = "rhc_BasesSelect";
-            this.rhc_BasesSelect.Size = new System.Drawing.Size(168, 58);
-            this.rhc_BasesSelect.TabIndex = 3;
-            this.rhc_BasesSelect.Text = "";
+            this.btn_Todas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_Todas.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_Todas.Font = new System.Drawing.Font("Arial Black", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Todas.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_Todas.Location = new System.Drawing.Point(14, 196);
+            this.btn_Todas.Name = "btn_Todas";
+            this.btn_Todas.Size = new System.Drawing.Size(98, 31);
+            this.btn_Todas.TabIndex = 0;
+            this.btn_Todas.Text = "Todas";
+            this.btn_Todas.UseVisualStyleBackColor = false;
+            this.btn_Todas.Click += new System.EventHandler(this.btn_Todas_Click);
             // 
-            // lblBasesSelec
+            // btn_Ninguna
             // 
-            this.lblBasesSelec.AutoSize = true;
-            this.lblBasesSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBasesSelec.Location = new System.Drawing.Point(6, 309);
-            this.lblBasesSelec.Name = "lblBasesSelec";
-            this.lblBasesSelec.Size = new System.Drawing.Size(163, 16);
-            this.lblBasesSelec.TabIndex = 4;
-            this.lblBasesSelec.Text = "Bases Seleccionadas:";
-            // 
-            // btnLimpiarSelec
-            // 
-            this.btnLimpiarSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarSelec.Location = new System.Drawing.Point(9, 394);
-            this.btnLimpiarSelec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLimpiarSelec.Name = "btnLimpiarSelec";
-            this.btnLimpiarSelec.Size = new System.Drawing.Size(127, 36);
-            this.btnLimpiarSelec.TabIndex = 5;
-            this.btnLimpiarSelec.Text = "Limpiar";
-            this.btnLimpiarSelec.UseVisualStyleBackColor = true;
-            this.btnLimpiarSelec.Click += new System.EventHandler(this.btnLimpiarSelec_Click);
+            this.btn_Ninguna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_Ninguna.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_Ninguna.Font = new System.Drawing.Font("Arial Black", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Ninguna.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_Ninguna.Location = new System.Drawing.Point(140, 196);
+            this.btn_Ninguna.Name = "btn_Ninguna";
+            this.btn_Ninguna.Size = new System.Drawing.Size(98, 31);
+            this.btn_Ninguna.TabIndex = 1;
+            this.btn_Ninguna.Text = "Ninguna";
+            this.btn_Ninguna.UseVisualStyleBackColor = false;
             // 
             // frmSGBD
             // 
@@ -289,6 +321,7 @@ namespace Interfaz
             this.Load += new System.EventHandler(this.frmSGBD_Load);
             this.grpSchemas.ResumeLayout(false);
             this.grpSchemas2.ResumeLayout(false);
+            this.pan_esquemas.ResumeLayout(false);
             this.grpConsultas.ResumeLayout(false);
             this.grpConsultas.PerformLayout();
             this.grpTerminal.ResumeLayout(false);
@@ -319,6 +352,8 @@ namespace Interfaz
         private System.Windows.Forms.Button btnLimpiarSelec;
         private System.Windows.Forms.Label lblBasesSelec;
         private System.Windows.Forms.RichTextBox rhc_BasesSelect;
+        private System.Windows.Forms.Button btn_Ninguna;
+        private System.Windows.Forms.Button btn_Todas;
     }
 }
 

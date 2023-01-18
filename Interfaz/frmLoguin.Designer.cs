@@ -48,6 +48,8 @@ namespace Interfaz
             // 
             // grpLoguin
             // 
+            this.grpLoguin.Controls.Add(this.label1);
+            this.grpLoguin.Controls.Add(this.txtServidor);
             this.grpLoguin.Controls.Add(this.grp_Credenciales);
             this.grpLoguin.Controls.Add(this.btnCancelar);
             this.grpLoguin.Controls.Add(this.btnIngresar);
@@ -65,16 +67,14 @@ namespace Interfaz
             // 
             // grp_Credenciales
             // 
-            this.grp_Credenciales.Controls.Add(this.label1);
-            this.grp_Credenciales.Controls.Add(this.txtServidor);
             this.grp_Credenciales.Controls.Add(this.lblUsuario);
             this.grp_Credenciales.Controls.Add(this.txtUsuario);
             this.grp_Credenciales.Controls.Add(this.chkVer);
             this.grp_Credenciales.Controls.Add(this.lblPassword);
             this.grp_Credenciales.Controls.Add(this.txtPassword);
-            this.grp_Credenciales.Location = new System.Drawing.Point(26, 144);
+            this.grp_Credenciales.Location = new System.Drawing.Point(26, 249);
             this.grp_Credenciales.Name = "grp_Credenciales";
-            this.grp_Credenciales.Size = new System.Drawing.Size(567, 414);
+            this.grp_Credenciales.Size = new System.Drawing.Size(567, 303);
             this.grp_Credenciales.TabIndex = 12;
             this.grp_Credenciales.TabStop = false;
             this.grp_Credenciales.Text = "Credenciales User";
@@ -82,7 +82,7 @@ namespace Interfaz
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 60);
+            this.label1.Location = new System.Drawing.Point(21, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(347, 26);
             this.label1.TabIndex = 10;
@@ -90,7 +90,7 @@ namespace Interfaz
             // 
             // txtServidor
             // 
-            this.txtServidor.Location = new System.Drawing.Point(241, 110);
+            this.txtServidor.Location = new System.Drawing.Point(256, 189);
             this.txtServidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(223, 33);
@@ -99,7 +99,7 @@ namespace Interfaz
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(6, 163);
+            this.lblUsuario.Location = new System.Drawing.Point(6, 66);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(313, 26);
             this.lblUsuario.TabIndex = 2;
@@ -107,7 +107,7 @@ namespace Interfaz
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(241, 213);
+            this.txtUsuario.Location = new System.Drawing.Point(241, 116);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(223, 33);
@@ -116,7 +116,7 @@ namespace Interfaz
             // chkVer
             // 
             this.chkVer.AutoSize = true;
-            this.chkVer.Location = new System.Drawing.Point(487, 318);
+            this.chkVer.Location = new System.Drawing.Point(487, 221);
             this.chkVer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkVer.Name = "chkVer";
             this.chkVer.Size = new System.Drawing.Size(67, 30);
@@ -128,7 +128,7 @@ namespace Interfaz
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(3, 261);
+            this.lblPassword.Location = new System.Drawing.Point(3, 164);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(238, 26);
             this.lblPassword.TabIndex = 4;
@@ -136,7 +136,7 @@ namespace Interfaz
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(241, 316);
+            this.txtPassword.Location = new System.Drawing.Point(241, 219);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(223, 33);
