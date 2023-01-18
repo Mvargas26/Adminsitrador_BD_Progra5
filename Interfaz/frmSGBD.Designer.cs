@@ -38,7 +38,6 @@ namespace Interfaz
             this.rtxtArbol = new System.Windows.Forms.RichTextBox();
             this.grpConsultas = new System.Windows.Forms.GroupBox();
             this.btnBorrar = new System.Windows.Forms.Button();
-            this.dgvTerminal = new System.Windows.Forms.DataGridView();
             this.rtxtConsultas = new System.Windows.Forms.RichTextBox();
             this.grpTerminal = new System.Windows.Forms.GroupBox();
             this.pan_Terminal = new System.Windows.Forms.Panel();
@@ -46,10 +45,12 @@ namespace Interfaz
             this.btnLimpiarResult = new System.Windows.Forms.Button();
             this.richTx_Servidor = new System.Windows.Forms.RichTextBox();
             this.pan_Server = new System.Windows.Forms.Panel();
+            this.rhc_BasesSelect = new System.Windows.Forms.RichTextBox();
+            this.lblBasesSelec = new System.Windows.Forms.Label();
+            this.btnLimpiarSelec = new System.Windows.Forms.Button();
             this.grpSchemas.SuspendLayout();
             this.grpSchemas2.SuspendLayout();
             this.grpConsultas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTerminal)).BeginInit();
             this.grpTerminal.SuspendLayout();
             this.grpTerminal2.SuspendLayout();
             this.pan_Server.SuspendLayout();
@@ -58,10 +59,10 @@ namespace Interfaz
             // btnEjecutar
             // 
             this.btnEjecutar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEjecutar.Location = new System.Drawing.Point(316, 313);
+            this.btnEjecutar.Location = new System.Drawing.Point(345, 309);
             this.btnEjecutar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEjecutar.Name = "btnEjecutar";
-            this.btnEjecutar.Size = new System.Drawing.Size(163, 53);
+            this.btnEjecutar.Size = new System.Drawing.Size(181, 53);
             this.btnEjecutar.TabIndex = 0;
             this.btnEjecutar.Text = "Ejecutar";
             this.btnEjecutar.UseVisualStyleBackColor = true;
@@ -137,8 +138,10 @@ namespace Interfaz
             // 
             // grpConsultas
             // 
+            this.grpConsultas.Controls.Add(this.btnLimpiarSelec);
+            this.grpConsultas.Controls.Add(this.lblBasesSelec);
+            this.grpConsultas.Controls.Add(this.rhc_BasesSelect);
             this.grpConsultas.Controls.Add(this.btnBorrar);
-            this.grpConsultas.Controls.Add(this.dgvTerminal);
             this.grpConsultas.Controls.Add(this.rtxtConsultas);
             this.grpConsultas.Controls.Add(this.btnEjecutar);
             this.grpConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -154,25 +157,14 @@ namespace Interfaz
             // btnBorrar
             // 
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.Location = new System.Drawing.Point(521, 313);
+            this.btnBorrar.Location = new System.Drawing.Point(550, 309);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(163, 53);
+            this.btnBorrar.Size = new System.Drawing.Size(192, 53);
             this.btnBorrar.TabIndex = 2;
             this.btnBorrar.Text = "Borrar Consola";
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
-            // 
-            // dgvTerminal
-            // 
-            this.dgvTerminal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTerminal.Location = new System.Drawing.Point(24, 292);
-            this.dgvTerminal.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvTerminal.Name = "dgvTerminal";
-            this.dgvTerminal.ReadOnly = true;
-            this.dgvTerminal.RowHeadersWidth = 51;
-            this.dgvTerminal.Size = new System.Drawing.Size(254, 136);
-            this.dgvTerminal.TabIndex = 1;
             // 
             // rtxtConsultas
             // 
@@ -190,11 +182,11 @@ namespace Interfaz
             this.grpTerminal.Controls.Add(this.pan_Terminal);
             this.grpTerminal.Controls.Add(this.grpTerminal2);
             this.grpTerminal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grpTerminal.Location = new System.Drawing.Point(0, 456);
+            this.grpTerminal.Location = new System.Drawing.Point(0, 438);
             this.grpTerminal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpTerminal.Name = "grpTerminal";
             this.grpTerminal.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpTerminal.Size = new System.Drawing.Size(1224, 320);
+            this.grpTerminal.Size = new System.Drawing.Size(1224, 338);
             this.grpTerminal.TabIndex = 3;
             this.grpTerminal.TabStop = false;
             this.grpTerminal.Text = "TERMINAL";
@@ -205,7 +197,7 @@ namespace Interfaz
             this.pan_Terminal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pan_Terminal.Location = new System.Drawing.Point(3, 17);
             this.pan_Terminal.Name = "pan_Terminal";
-            this.pan_Terminal.Size = new System.Drawing.Size(1080, 301);
+            this.pan_Terminal.Size = new System.Drawing.Size(1080, 319);
             this.pan_Terminal.TabIndex = 3;
             // 
             // grpTerminal2
@@ -214,7 +206,7 @@ namespace Interfaz
             this.grpTerminal2.Dock = System.Windows.Forms.DockStyle.Right;
             this.grpTerminal2.Location = new System.Drawing.Point(1083, 17);
             this.grpTerminal2.Name = "grpTerminal2";
-            this.grpTerminal2.Size = new System.Drawing.Size(138, 301);
+            this.grpTerminal2.Size = new System.Drawing.Size(138, 319);
             this.grpTerminal2.TabIndex = 2;
             this.grpTerminal2.TabStop = false;
             // 
@@ -250,6 +242,36 @@ namespace Interfaz
             this.pan_Server.Size = new System.Drawing.Size(291, 63);
             this.pan_Server.TabIndex = 4;
             // 
+            // rhc_BasesSelect
+            // 
+            this.rhc_BasesSelect.Location = new System.Drawing.Point(6, 331);
+            this.rhc_BasesSelect.Name = "rhc_BasesSelect";
+            this.rhc_BasesSelect.Size = new System.Drawing.Size(168, 58);
+            this.rhc_BasesSelect.TabIndex = 3;
+            this.rhc_BasesSelect.Text = "";
+            // 
+            // lblBasesSelec
+            // 
+            this.lblBasesSelec.AutoSize = true;
+            this.lblBasesSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasesSelec.Location = new System.Drawing.Point(6, 309);
+            this.lblBasesSelec.Name = "lblBasesSelec";
+            this.lblBasesSelec.Size = new System.Drawing.Size(163, 16);
+            this.lblBasesSelec.TabIndex = 4;
+            this.lblBasesSelec.Text = "Bases Seleccionadas:";
+            // 
+            // btnLimpiarSelec
+            // 
+            this.btnLimpiarSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarSelec.Location = new System.Drawing.Point(9, 394);
+            this.btnLimpiarSelec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLimpiarSelec.Name = "btnLimpiarSelec";
+            this.btnLimpiarSelec.Size = new System.Drawing.Size(127, 36);
+            this.btnLimpiarSelec.TabIndex = 5;
+            this.btnLimpiarSelec.Text = "Limpiar";
+            this.btnLimpiarSelec.UseVisualStyleBackColor = true;
+            this.btnLimpiarSelec.Click += new System.EventHandler(this.btnLimpiarSelec_Click);
+            // 
             // frmSGBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -268,7 +290,7 @@ namespace Interfaz
             this.grpSchemas.ResumeLayout(false);
             this.grpSchemas2.ResumeLayout(false);
             this.grpConsultas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTerminal)).EndInit();
+            this.grpConsultas.PerformLayout();
             this.grpTerminal.ResumeLayout(false);
             this.grpTerminal2.ResumeLayout(false);
             this.pan_Server.ResumeLayout(false);
@@ -284,7 +306,6 @@ namespace Interfaz
         private System.Windows.Forms.GroupBox grpConsultas;
         private System.Windows.Forms.RichTextBox rtxtConsultas;
         private System.Windows.Forms.GroupBox grpTerminal;
-        private System.Windows.Forms.DataGridView dgvTerminal;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.RichTextBox rtxtSchemas;
         private System.Windows.Forms.GroupBox grpSchemas2;
@@ -295,6 +316,9 @@ namespace Interfaz
         private System.Windows.Forms.RichTextBox richTx_Servidor;
         private System.Windows.Forms.Panel pan_Server;
         private System.Windows.Forms.Panel pan_Terminal;
+        private System.Windows.Forms.Button btnLimpiarSelec;
+        private System.Windows.Forms.Label lblBasesSelec;
+        private System.Windows.Forms.RichTextBox rhc_BasesSelect;
     }
 }
 

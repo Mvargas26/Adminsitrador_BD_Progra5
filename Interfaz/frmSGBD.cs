@@ -68,6 +68,7 @@ namespace Interfaz
                         ch_list.Items.Add(valor["DATABASE"].ToString());
                     }
                     this.pan_esquemas.Controls.Add(ch_list);
+                    ch_list.SelectedIndexChanged += new EventHandler(this.verifica_chked); //dispara cada q seleccionan uno
                 }
 
                 if (negocios_Loguin.motorElegido == 3)
@@ -171,10 +172,6 @@ namespace Interfaz
                     this.pan_esquemas.Controls.Add(ch_list);
                 }
 
-
-
-
-
             }
             catch (Exception Error)
             {
@@ -187,9 +184,10 @@ namespace Interfaz
             {
                 resaltadoSintaxis(rtxtConsultas.Text.ToUpper(), rtxtConsultas);
 
-                this.dgvTerminal.DataSource = null;
-                this.dgvTerminal.Rows.Clear();
-                this.dgvTerminal.Columns.Clear();
+                //this.dgvTerminal.DataSource = null;
+                //this.dgvTerminal.Rows.Clear();
+                //this.dgvTerminal.Columns.Clear();
+                this.pan_Terminal.Controls.Clear();
 
                 if (negocios_Loguin.motorElegido == 1)
                 {
@@ -219,7 +217,7 @@ namespace Interfaz
                             }
                            
                         }
-                        //ds = objSQLServer.QuerySQLServerNegocios_DS(strB_cadena.ToString());
+
                         int posicion = 0;
                         for (int i = 0; i < ds.Tables.Count; i++)
                         {
@@ -234,28 +232,130 @@ namespace Interfaz
                     else
                     {
                         DataGridView newDGV = new DataGridView();
-                        newDGV.DataSource = objSQLServer.QuerySQLServerNegocios(consultaDelUsuario);
+                        string baSelect = "";
+                        if (listaChequeados.Count==1)
+                        {
+                            baSelect ="Use " + listaChequeados[0].ToString()+";";
+                        }
+                        newDGV.DataSource = objSQLServer.QuerySQLServerNegocios(baSelect+consultaDelUsuario);
                         newDGV.Dock=  DockStyle.Fill;
                         newDGV.Location = new Point(0, 0);
                         this.pan_Terminal.Controls.Add(newDGV);
                     }
-                   
-                   // this.dgvTerminal.DataSource = objSQLServer.QuerySQLServerNegocios(consultaDelUsuario);
                 }
 
                 if (negocios_Loguin.motorElegido == 2)
                 {
-                    Negocios_MySQL objNegocios = new Negocios_MySQL();
+                    Negocios_MySQL objMySQL = new Negocios_MySQL();
                     String consultaDelUsuario = this.rtxtConsultas.Text;
+                    DataSet ds = new DataSet();
 
-                    //this.dgvTerminal.DataSource = objNegocios.QueryMySQLNegocios(consultaDelUsuario);
+                    if (listaChequeados.Count > 1) //si en la lista hay chequeados
+                    {
+                        StringBuilder strB_cadena = new StringBuilder();
+
+                        foreach (string dbConsultar in listaChequeados)//envia consulta x cada base
+                        {
+                            strB_cadena.Append("USE " + dbConsultar + ";" + "\n");
+                            strB_cadena.Append(consultaDelUsuario + "\n");
+                            DataTable dt = new DataTable();
+                            try
+                            {
+                                dt = objMySQL.QueryMySQLNegocios(strB_cadena.ToString());
+                                ds.Tables.Add(dt);
+                                strB_cadena.Clear();
+                            }
+                            catch (Exception)
+                            {
+                                ds.Tables.Add(dt);
+                                strB_cadena.Clear();
+                            }
+
+                        }
+
+                        int posicion = 0;
+                        for (int i = 0; i < ds.Tables.Count; i++)
+                        {
+                            DataGridView newDGV = new DataGridView();
+                            newDGV.DataSource = ds.Tables[i];
+                            newDGV.Location = new Point(0, posicion);
+                            newDGV.Size = new Size(500, 100);
+                            this.pan_Terminal.Controls.Add(newDGV);
+                            posicion += 130;
+                        }
+                    }
+                    else
+                    {
+                        DataGridView newDGV = new DataGridView();
+                        string baSelect = "";
+                        if (listaChequeados.Count == 1)
+                        {
+                            baSelect = "USE " + listaChequeados[0].ToString() + ";"+"\n";
+                        }
+                        newDGV.DataSource = objMySQL.QueryMySQLNegocios(baSelect + consultaDelUsuario);
+                        newDGV.Dock = DockStyle.Fill;
+                        newDGV.Location = new Point(0, 0);
+                        this.pan_Terminal.Controls.Add(newDGV);
+                    }
                 }
+                if (negocios_Loguin.motorElegido == 3)
+                {
+                    Negocios_SQL_Server objSQLServer = new Negocios_SQL_Server();
+                    String consultaDelUsuario = this.rtxtConsultas.Text;
+                    DataSet ds = new DataSet();
 
+                    if (listaChequeados.Count > 1) //si en la lista hay chequeados
+                    {
+                        StringBuilder strB_cadena = new StringBuilder();
+
+                        foreach (string dbConsultar in listaChequeados)//envia consulta x cada base
+                        {
+                            strB_cadena.Append("use " + dbConsultar + ";");
+                            strB_cadena.Append(consultaDelUsuario + "\n");
+                            DataTable dt = new DataTable();
+                            try
+                            {
+                                dt = objSQLServer.QuerySQLServerNegociosAW(strB_cadena.ToString());
+                                ds.Tables.Add(dt);
+                                strB_cadena.Clear();
+                            }
+                            catch (Exception)
+                            {
+                                ds.Tables.Add(dt);
+                                strB_cadena.Clear();
+                            }
+                        }
+
+                        int posicion = 0;
+                        for (int i = 0; i < ds.Tables.Count; i++)
+                        {
+                            DataGridView newDGV = new DataGridView();
+                            newDGV.DataSource = ds.Tables[i];
+                            newDGV.Location = new Point(0, posicion);
+                            newDGV.Size = new Size(500, 100);
+                            this.pan_Terminal.Controls.Add(newDGV);
+                            posicion += 130;
+                        }
+                    }
+                    else
+                    {
+                        DataGridView newDGV = new DataGridView();
+                        string baSelect = "";
+                        if (listaChequeados.Count == 1)
+                        {
+                            baSelect = "Use " + listaChequeados[0].ToString() + ";";
+                        }
+                        newDGV.DataSource = objSQLServer.QuerySQLServerNegociosAW(baSelect + consultaDelUsuario);
+                        newDGV.Dock = DockStyle.Fill;
+                        newDGV.Location = new Point(0, 0);
+                        this.pan_Terminal.Controls.Add(newDGV);
+                    }
+                }
 
             }
             catch (Exception Error)
             {
-                MessageBox.Show(Error.Message, "“Por favor digite un comando válido.”");
+                MessageBox.Show("“Por favor digite un comando válido.”", Error.Message);
             }
         }
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -273,6 +373,7 @@ namespace Interfaz
             if (indice != -1)
             {
                 listaChequeados.Add(chk_list.Items[indice].ToString());
+                rhc_BasesSelect.AppendText(chk_list.Items[indice].ToString()+"\n");
             }
         }//fn verifica_chked
         private void resaltadoSintaxis(String strCadenaUsuario, RichTextBox rTextAmodificar)
@@ -302,6 +403,11 @@ namespace Interfaz
 
         }// fin resaltadoSintaxis
         #endregion
-       
+
+        private void btnLimpiarSelec_Click(object sender, EventArgs e)
+        {
+            rhc_BasesSelect.Clear();
+            listaChequeados.Clear();
+        }
     }// fin calss del frame
 }//fin class

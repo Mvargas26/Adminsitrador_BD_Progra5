@@ -20,6 +20,7 @@ namespace Interfaz
         public frmLoguin()
         {
             InitializeComponent();
+            
         }
 
         private void chkVer_CheckedChanged(object sender, EventArgs e)
@@ -68,11 +69,7 @@ namespace Interfaz
                 if (cmbBD.SelectedItem.Equals("SQLServer"))
                 {
                     //asignamos al appseting las credenciales enviadas
-                    if (!txtServidor.Equals(""))
-                    {
-                        ConfigurationManager.AppSettings["DataSource_SqlSer"] = txtServidor.Text;
-                    }
-                   
+                    ConfigurationManager.AppSettings["DataSource_SqlSer"] = txtServidor.Text;
                     ConfigurationManager.AppSettings["User_SqlSer"] = txtUsuario.Text;
                     ConfigurationManager.AppSettings["Password_SqlSer"]= txtPassword.Text;
                     
@@ -141,7 +138,7 @@ namespace Interfaz
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "No ha  sido posible lograr la conexión con los datos  indicados, por favor intente de nuevo.");
+                MessageBox.Show("No ha  sido posible lograr la conexión con los datos  indicados, por favor intente de nuevo.", ex.Message);
             }
         }//fn btn ingresar
 
@@ -154,6 +151,14 @@ namespace Interfaz
             if (!cmbBD.SelectedItem.Equals("SQLServer(Windos Autentification)"))
             {
                 this.grp_Credenciales.Visible = true;
+            }
+            if (cmbBD.SelectedItem.Equals("SQLServer"))
+            {
+                txtServidor.Text = ConfigurationManager.AppSettings["DataSource_SqlSer"];
+            }
+            if (cmbBD.SelectedItem.Equals("MySQL"))
+            {
+                txtServidor.Text = ConfigurationManager.AppSettings["ServerName_MySQL"];
             }
         }//fn cmbBD_SelectedIndexChanged
 
