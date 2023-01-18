@@ -16,6 +16,7 @@ namespace Interfaz
     {
         //Variables globales
         ArrayList listaChequeados = new ArrayList();
+        CheckedListBox ch_list = new CheckedListBox();
         public frmSGBD()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace Interfaz
                     this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor+"\n");
                     this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
 
-                    CheckedListBox ch_list = new CheckedListBox();
+                     ch_list = new CheckedListBox();
                     ch_list.Dock = DockStyle.Fill;
 
                     foreach (DataRow valor in dtdatos.Rows)
@@ -61,7 +62,7 @@ namespace Interfaz
                     this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor + "\n");
                     this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
 
-                    CheckedListBox ch_list = new CheckedListBox();
+                     ch_list = new CheckedListBox();
                     ch_list.Dock = DockStyle.Fill;
                     foreach (DataRow valor in dtdatos.Rows)
                     {
@@ -80,7 +81,7 @@ namespace Interfaz
                     this.richTx_Servidor.AppendText("Server: " + negocios_Loguin.Servidor + "\n");
                     this.richTx_Servidor.AppendText("User: " + negocios_Loguin.usuario + "\n");
 
-                    CheckedListBox ch_list = new CheckedListBox();
+                     ch_list = new CheckedListBox();
                     ch_list.Dock = DockStyle.Fill;
 
                     foreach (DataRow valor in dtdatos.Rows)
@@ -412,7 +413,25 @@ namespace Interfaz
 
         private void btn_Todas_Click(object sender, EventArgs e)
         {
+            int indice = ch_list.Items.Count;
+         for (int i = 0; i < indice; i++)
+          {
+                ch_list.SetItemChecked(i,true);
+                listaChequeados.Add(ch_list.Items[i].ToString());
+                rhc_BasesSelect.AppendText(ch_list.Items[i].ToString()+"\n");
+          }
+        }//fn
 
-        }
+        private void btn_Ninguna_Click(object sender, EventArgs e)
+        {
+            int indice = ch_list.Items.Count;
+            for (int i = 0; i < indice; i++)
+            {
+                ch_list.SetItemChecked(i, false);
+                listaChequeados.Clear();
+                rhc_BasesSelect.Clear();
+            }
+
+        }//fn
     }// fin calss del frame
 }//fin class

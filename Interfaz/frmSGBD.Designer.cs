@@ -34,6 +34,8 @@ namespace Interfaz
             this.grpSchemas2 = new System.Windows.Forms.GroupBox();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.pan_esquemas = new System.Windows.Forms.Panel();
+            this.btn_Ninguna = new System.Windows.Forms.Button();
+            this.btn_Todas = new System.Windows.Forms.Button();
             this.rtxtSchemas = new System.Windows.Forms.RichTextBox();
             this.rtxtArbol = new System.Windows.Forms.RichTextBox();
             this.grpConsultas = new System.Windows.Forms.GroupBox();
@@ -48,8 +50,6 @@ namespace Interfaz
             this.btnLimpiarResult = new System.Windows.Forms.Button();
             this.richTx_Servidor = new System.Windows.Forms.RichTextBox();
             this.pan_Server = new System.Windows.Forms.Panel();
-            this.btn_Todas = new System.Windows.Forms.Button();
-            this.btn_Ninguna = new System.Windows.Forms.Button();
             this.grpSchemas.SuspendLayout();
             this.grpSchemas2.SuspendLayout();
             this.pan_esquemas.SuspendLayout();
@@ -118,6 +118,34 @@ namespace Interfaz
             this.pan_esquemas.Name = "pan_esquemas";
             this.pan_esquemas.Size = new System.Drawing.Size(294, 341);
             this.pan_esquemas.TabIndex = 3;
+            // 
+            // btn_Ninguna
+            // 
+            this.btn_Ninguna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_Ninguna.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_Ninguna.Font = new System.Drawing.Font("Arial Black", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Ninguna.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_Ninguna.Location = new System.Drawing.Point(140, 196);
+            this.btn_Ninguna.Name = "btn_Ninguna";
+            this.btn_Ninguna.Size = new System.Drawing.Size(98, 31);
+            this.btn_Ninguna.TabIndex = 1;
+            this.btn_Ninguna.Text = "Ninguna";
+            this.btn_Ninguna.UseVisualStyleBackColor = false;
+            this.btn_Ninguna.Click += new System.EventHandler(this.btn_Ninguna_Click);
+            // 
+            // btn_Todas
+            // 
+            this.btn_Todas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_Todas.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_Todas.Font = new System.Drawing.Font("Arial Black", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Todas.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_Todas.Location = new System.Drawing.Point(14, 196);
+            this.btn_Todas.Name = "btn_Todas";
+            this.btn_Todas.Size = new System.Drawing.Size(98, 31);
+            this.btn_Todas.TabIndex = 0;
+            this.btn_Todas.Text = "Todas";
+            this.btn_Todas.UseVisualStyleBackColor = false;
+            this.btn_Todas.Click += new System.EventHandler(this.btn_Todas_Click);
             // 
             // rtxtSchemas
             // 
@@ -276,33 +304,6 @@ namespace Interfaz
             this.pan_Server.Name = "pan_Server";
             this.pan_Server.Size = new System.Drawing.Size(291, 63);
             this.pan_Server.TabIndex = 4;
-            // 
-            // btn_Todas
-            // 
-            this.btn_Todas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_Todas.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_Todas.Font = new System.Drawing.Font("Arial Black", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Todas.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_Todas.Location = new System.Drawing.Point(14, 196);
-            this.btn_Todas.Name = "btn_Todas";
-            this.btn_Todas.Size = new System.Drawing.Size(98, 31);
-            this.btn_Todas.TabIndex = 0;
-            this.btn_Todas.Text = "Todas";
-            this.btn_Todas.UseVisualStyleBackColor = false;
-            this.btn_Todas.Click += new System.EventHandler(this.btn_Todas_Click);
-            // 
-            // btn_Ninguna
-            // 
-            this.btn_Ninguna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_Ninguna.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_Ninguna.Font = new System.Drawing.Font("Arial Black", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Ninguna.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_Ninguna.Location = new System.Drawing.Point(140, 196);
-            this.btn_Ninguna.Name = "btn_Ninguna";
-            this.btn_Ninguna.Size = new System.Drawing.Size(98, 31);
-            this.btn_Ninguna.TabIndex = 1;
-            this.btn_Ninguna.Text = "Ninguna";
-            this.btn_Ninguna.UseVisualStyleBackColor = false;
             // 
             // frmSGBD
             // 
